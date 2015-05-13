@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+
+<!-- Widoczne tylko po zalogowaniu -->
+
+
+<div class="zalogowany">
+  <div class="container text-center">
+    <div class="row hidden-xs">
+      <div class="col-sm-6">
+        <span class="glyphicon glyphicon-user"></span>pomykacz.sz@gmail.com
+      </div>
+      <div class="col-sm-6">
+        <span class="glyphicon glyphicon-log-out"></span>wyloguj się
+      </div>
+    </div>
+
+    <div class="row visible-xs">
+      <div class="col-xs-8">
+        <span class="glyphicon glyphicon-user"></span>pomykacz.sz@gmail.com
+      </div>
+      <div class="col-xs-4">
+        <span class="glyphicon glyphicon-log-out"></span>wyloguj
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<nav class="navbar navbar-default nawigacja" style="background-color: white; border-bottom: 1px solid grey;">
+        <div class="container menu">
+            <div class="navbar-header">
+                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#"><img alt="logo" src="img/logo.png"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="main-menu">
+                <ul class="nav navbar-nav navbar-right text-center">
+                    <li><a href="#" class="active-li">Home</a></li>
+                    <li><a href="#">Dodaj ogłoszenie</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+</nav>
+
+
+
+<div id="pasek_srodek">
+  <div id="srodek_tlo">
+    <div class="container box_container">
+       <div class="row">
+          <div class="col-md-6">
+            <div class="input-group szukaj">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
+              </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+          <div class="col-md-2">
+            <select class="form-control pole_wyboru">
+              <option>Wszystkio</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control pole_wyboru">
+              <option>Wszystkio</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control pole_wyboru">
+              <option>Wszystkio</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+            
+
+
+          </div>
+        </div><!-- /.row -->
+    </div>
+  </div>
+</div>
+
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        
+        <div class="kategorie">
+          <div id="kat1">
+            <h4><span class="glyphicon glyphicon-user" aria-hidden="true"> Praca</h4> 
+          </div>
+          <div id="podkategorie">
+                      <ul>
+                        <li><a href="#">pierwsze cos</a></li>
+                        <li><a href="#">jako tako</a></li>
+                        <li><a href="#">ciężka praca</a></li>
+                        <li><a href="#">sprzątaczka</a></li>
+                        <li><a href="#">pani lekkich obyczajów</a></li>
+                        <li><a href="#">no juz nie co</a></li>
+                        <li><a href="#">sprzątaczka</a></li>
+                        <li><a href="#">pani lekkich obyczajów</a></li>
+                        <li><a href="#">no juz nie co</a></li>
+                      </ul>
+          </div>          
+        </div>
+
+        <div class="kategorie">
+           <div id="kat1">
+             <h4><span class="glyphicon glyphicon-home" aria-hidden="true"> Nieruchomości</h4>
+           </div>
+           <div id="podkategorie">
+                      <ul>
+                        <li><a href="#">pierwsze cos</a></li>
+                        <li><a href="#">jako tako</a></li>
+                        <li><a href="#">ciężka praca</a></li>
+                        <li><a href="#">sprzątaczka</a></li>
+                        <li><a href="#">pani lekkich obyczajów</a></li>
+                        <li><a href="#">no juz nie co</a></li>
+                      </ul>
+          </div>  
+        </div>
+
+        <div class="kategorie">
+           <div id="kat1">
+             <h4><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> Kupię/Sprzedam</h4>
+           </div>
+           <div id="podkategorie">
+                      <ul>
+                        <li><a href="#">pierwsze cos</a></li>
+                        <li><a href="#">jako tako</a></li>
+                        <li><a href="#">ciężka praca</a></li>
+                        <li><a href="#">sprzątaczka</a></li>
+                        <li><a href="#">pani lekkich obyczajów</a></li>
+                        <li><a href="#">no juz nie co</a></li>
+                        <li><a href="#">sprzątaczka</a></li>
+                        <li><a href="#">pani lekkich obyczajów</a></li>
+                        <li><a href="#">no juz nie co</a></li>
+                      </ul>
+          </div>  
+        </div>
+
+      </div>    <!-- end col-md-3  kategorie -->
+
+      <form method="get" action="pp.html">
+      <div class="col-md-9">
+        <div class="col-md-12">
+          <h3 class="text-center">Wybierz kategorię</h3>
+
+          <div class="col-md-6 dodaj_kategorie">
+            <ul class="nav nav-stacked">
+              <li class="active"><a href="#praca" data-toggle="tab">Praca</a></li>
+              <li><a href="#sprzedam" data-toggle="tab">Sprzedam</a></li>
+              <li><a href="#nieruchomosci" data-toggle="tab">Nieruchomości</a></li>
+            </ul>
+          </div>
+        
+
+          <div class="col-md-6 dodaj_podkategorie">
+            <div class="tab-content">
+
+              <ul class="tab-pane" id="praca">
+                <a href="#"><li>Dam</li></a>
+                <a href="#"><li>Znajde</li></a>
+              </ul>
+
+              <ul class="tab-pane" id="sprzedam">
+                <a href="#"><li>Nerkę</li></a>
+                <a href="#"><li>Wątrobę</li></a>
+                <a href="#"><li>Wątrobę</li></a>
+              </ul>
+
+              <ul class="tab-pane" id="nieruchomosci" name="chuj">
+                <a href="#" name="szalas"><li>Szałas</li></a>
+                <a href="#"><li>Buda</li></a>
+              </ul>
+
+            </div>
+          </div>
+          
+          <div class="clearfix">
+          </div>
+
+          <nav>
+            <ul class="pager">
+              <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Powrót</a></li>
+              <li class="next"><a href="#">Dalej <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+          </nav>
+
+
+
+          <div class="clearfix">
+          </div>
+
+          <optgroup>
+            
+
+          </optgroup>          
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+<div id="oddzielenie"></div>
+
+
+
+
+<div id="strzalka"><a href="#"><img src="img/strzalka.png" ></a></div>
+
+<div id="footer">
+  <div id="footer_czarny">
+    <div class="content_f">
+      <div class="row">
+        
+        <div class="col-md-4 foot">
+          <div id="srodek_f">
+           <h2>Co możemy powiedzieć o nas..</h2>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt at odio, assumenda voluptas aperiam commodi aliquam laudantium nam placeat veritatis? </p>
+           <ul>
+              <li><a href="#">pierwsze cos</a></li>
+              <li><a href="#">jako tako</a></li>
+              <li><a href="#">ciężka praca</a></li>
+              <li><a href="#">sprzątaczka</a></li>
+              <li><a href="#">pani lekkich obyczajów</a></li>
+              <li><a href="#">no juz nie co</a></li>
+              <li><a href="#">sprzątaczka</a></li>
+              <li><a href="#">pani lekkich obyczajów</a></li>
+              <li><a href="#">no juz nie co</a></li>
+            </ul>
+
+            <h2>Dlaczego?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, repudiandae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt at odio, assumenda voluptas aperiam commodi aliquam laudantium nam placeat veritatis? </p>
+           
+          </div>
+        </div>
+
+        <div class="col-md-4 foot">
+           <div id="srodek_f">
+           <h2>Informacje kontaktowe..</h2>
+           <p class="pKontakt"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 600-121-888</p>
+           <p class="pKontakt"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 14-88-92-182</p>
+           <p class="pKontakt"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> kontakt@ogloszenia.pl</p>
+           <p class="pKontakt"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> pomoc_techniczna@ogloszenia.pl</p>
+           <p class="pKontakt"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> pawel@ogloszenia.pl</p>
+           
+
+           <form role="form">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Podaj twój e-mail</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="e-mail">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Zadaj szybkie pytanie</label>
+              <textarea class="form-control" rows="3" placeholder="wpisz swoje pytanie.."></textarea>
+            </div>
+            <button type="submit" class="btn btn-default pytanie pull-right">Wyślij</button>
+          </form>
+           
+         </div>
+        </div>
+
+        <div class="col-md-4 foot">
+          <div id="srodek_f">
+           <h2>Humor na dzisiaj ;)</h2>
+           <div class="embed-responsive embed-responsive-16by9">
+             <iframe class="embed-responsive-item" src="//www.youtube.com/embed/HQ9W7fGVU9Q"></iframe>
+           </div>
+            <h2>Dowcip dnia..</h2>
+           <p class="kawal">Idzie gówno z dupą ciemnym korytarzem, nagle gówno mówi:</p>
+           <p class="kawal">-Tyyy ciemno tu jak w dupe</p>
+           <p class="kawal">dupa sie wkurwiła i mówi:</p>
+           <p class="kawal">-Ja też gówno widze!</p>
+           <p class="kawal">hahahahahahahahahahahahah ;)</p>
+
+
+
+
+         </div>
+        </div>
+      
+      </div>
+    </div>
+
+
+  </div>
+  
+</div>
+
+
+  
+        <script src="js/jquery.js"> </script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+   
+</body>
+</html>

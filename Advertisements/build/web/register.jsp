@@ -1,3 +1,11 @@
+<%-- 
+    Document   : register.jsp
+    Created on : 2015-05-07, 15:41:36
+    Author     : Mariusz
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 
 <html>
@@ -20,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <form method="post" action="register" >
+                    <form method="post" action="test" >
                         <div class="form-group">
                             <label>Email address</label>
                             <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
