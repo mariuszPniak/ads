@@ -36,7 +36,7 @@
 </div>
 
 
-
+<!--
 <nav class="navbar navbar-default nawigacja" style="background-color: white; border-bottom: 1px solid grey;">
         <div class="container menu">
             <div class="navbar-header">
@@ -58,47 +58,24 @@
             </div>
         </div>
 </nav>
+-->
 
-<div class="container">
-  <div class="row" >
 
-      <div class="col-md-6">
-            <div class="input-group szukaj">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
-              </span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-          <div class="col-md-2">
-            <select class="form-control pole_wyboru">
-              <option>Wszystkio</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <select class="form-control pole_wyboru">
-              <option>Wszystkio</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <select class="form-control pole_wyboru">
-              <option>Wszystkio</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-      </div>
+<div class="container gora_strony">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="#"><img alt="logo" src="img/logo.png"></a>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group szukaj">
+          <input type="text" class="form-control" placeholder="Wyszukaj ogłoszenie...">
+          <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
+         </span>
+      </div><!-- /input-group -->
+    </div>
+  </div>
+</div>
 
 
 
@@ -138,14 +115,14 @@
 
               </div> 
 
-              <div class="modal fade" id="okienkoRejestracji" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 5%">
+              <div class="modal fade" style="z-index: 100;" id="okienkoRejestracji" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 5%">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
         <h3 class="modal-title text-center" id="myModalLabel">Rejestracja</h3>
                     </div>
-                    <form method="post" action="register">
+                    
                       <div class="modal-body">
                         <input type="text" class="form-control" placeholder="Twój login">
                         <input type="text" class="form-control" placeholder="Twój e-mail">
@@ -156,7 +133,7 @@
                           <label class="pull-left"><input type="checkbox"> Akceptuję regulamin serwisu</label>
                         <button type="button" class="btn btn-primary">Zarejestruj się</button>
                       </div>
-                    </form>
+                    
                   </div>
                 </div>
               </div>
@@ -326,20 +303,29 @@
           <h4>Zlece wykonanie prostej strony www</h4>
           <h4 id="data">2014-12-19</h4>
           
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-            Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
-            consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
-            Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
-            ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
-            ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
-            ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
+          <div class="clearfix">
+          </div>
 
+          <img src="img/advert.png" alt="ogloszenie"/>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
+             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
+             Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
+             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
+             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
+             ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
         </div>
+
+
         <div class="ogloszenie_box">
           <a href="#"><h4>mateooo3</h4></a>
           <h4>Szukam taniej ładnej sprzątaczki. Przyjmę od zaraz :))</h4>
           <h4 id="data">2014-12-18</h4>
           
+          <div class="clearfix">
+          </div>
+
+          <img src="img/advert.png" alt="ogloszenie"/>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
@@ -347,27 +333,36 @@
             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
             ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
-
         </div>
+
+
         <div class="ogloszenie_box">
           <a href="#"><h4>płotka</h4></a>
           <h4>Sprzedam akwarium z żywymi rybkami!</h4>
           <h4 id="data">2014-12-18</h4>
-          
+          <div class="clearfix">
+          </div>
+
+          <img src="img/advert.png" alt="ogloszenie"/>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
             Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
-            ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
-
+            ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p>
         </div>
+
+
         <div class="ogloszenie_box">
           <a href="#"><h4>nataliaHaH69</h4></a>
           <h4>Zatrudnię kucharza który umie robić pieroga</h4>
           <h4 id="data">2014-12-19</h4>
           
+          <div class="clearfix">
+          </div>
+
+          <img src="img/advert.png" alt="ogloszenie"/>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
@@ -375,13 +370,18 @@
             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
             ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
-
         </div>
+
+
         <div class="ogloszenie_box">
           <a href="#"><h4>maciej3772</h4></a>
           <h4>Zlece wykonanie prostej strony www</h4>
           <h4 id="data">2014-12-19</h4>
           
+          <div class="clearfix">
+          </div>
+
+          <img src="img/advert.png" alt="ogloszenie"/>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
@@ -389,7 +389,6 @@
             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
             ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
-
         </div>
 
         <nav id="nav_numer">

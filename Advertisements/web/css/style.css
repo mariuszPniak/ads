@@ -8,7 +8,7 @@ body{
     z-index: 100;
     width: 100%;
     padding-top: 5px;
-    margin-top: -30px;
+    margin-top: -34px;
 }
 
 .zalogowany span{
@@ -16,61 +16,18 @@ body{
 }
 
 
-.nawigacja{
-    margin-top: 30px;
+.gora_strony{
+    margin-top: 34px;
 }
 
-.menu button{
-    margin-top: 45px;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.menu img{
-    margin-left: 40px;
-    margin-top: 30px;
-    margin-bottom: 35px;
+.gora_strony img{
+    margin-top: 20px;
 }
 
 #line{
     position: relative;
     top: -1px;
 }
-#main-menu{
-    margin-right: 100px;
-    margin-top: 30px;
-}
-
-#main-menu ul{
-    margin-top: 5px;
-}
-
-#main-menu ul li{
-    padding: 0 10px;
-}
-
-#main-menu ul li a{
-    font-weight: 700;
-    font-size: 16px;
-    color: black!important;
-}
-
-#main-menu ul li a:hover{
-    background-color: #47576E!important;
-    color: white!important;
-}
-
-#main-menu ul li a.active-li{
-    background-color: #47576E!important;
-    color: white!important;
-}
-
-.menu .collapse{
-    width: 100%;
-}
-
-
-
-
 
 
 
@@ -85,13 +42,13 @@ body{
 }
 
 .slider{
+    border-top: thin solid grey;
     min-height: 500px;
     width: 100%;
     background-image: url("../img/slider.jpg");
     background-size: cover;
     background-position: center;
     clear: both;
-
 }
 
 
@@ -245,6 +202,16 @@ form{
     width: 100%;
     border: solid 2px #F2F2F0;
     padding: 30px;
+}
+
+.ogloszenie_box img{
+    float: left;
+    padding-right: 10px; 
+    padding-bottom: 10px;
+}
+
+.ogloszenie_box p{
+    display: inline;
 }
 
 #podkategorie{
