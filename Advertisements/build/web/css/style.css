@@ -1,6 +1,81 @@
 body{
 }
 
+.zalogowany{
+    height: 30px;
+    background-color: #47576E;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    padding-top: 5px;
+    margin-top: -30px;
+}
+
+.zalogowany span{
+    margin-right: 8px;
+}
+
+
+.nawigacja{
+    margin-top: 30px;
+}
+
+.menu button{
+    margin-top: 45px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.menu img{
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+
+#line{
+    position: relative;
+    top: -1px;
+}
+#main-menu{
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+#main-menu ul{
+    margin-top: 5px;
+}
+
+#main-menu ul li{
+    padding: 0 10px;
+}
+
+#main-menu ul li a{
+    font-weight: 700;
+    font-size: 16px;
+    color: black!important;
+}
+
+#main-menu ul li a:hover{
+    background-color: #47576E!important;
+    color: white!important;
+}
+
+#main-menu ul li a.active-li{
+    background-color: #47576E!important;
+    color: white!important;
+}
+
+.menu .collapse{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
 .przycisk{
     margin-right: 10%;
 }
@@ -19,34 +94,6 @@ body{
 
 }
 
-.menu {
-    background: white;
-    height: 100%;
-}
-
-.nav_ul li{
-    height: 100%;
-}
-
-.nav_ul  .active a{
-    background: #47576E!important;
-    color: white!important;
-}
-
-.nav_ul li a:hover{
-    background: #F2F2F0!important;
-    color:black!important;
-}
-.nav_ul li a{
-    color: black!important;
-    height: 100%;
-    font-size: 18px;
-    padding: 35px 30px;
-}
-
-.nav_ul{
-    height: 100px;
-}
 
 .slider img{
     padding-top: 20px;
@@ -56,12 +103,7 @@ body{
     
 }
 
-nav{
-    border: none!important;
-    background: white!important;
-    height:100px;
-    position: fixed;
-}
+
 
 
 form{
@@ -82,12 +124,8 @@ form{
     color:white;
 }
 
-#zaloguj{
+#zalogoj{
     margin-right: 8px;
-}
-
-.nawigacja li{
-    padding-left: 20px;
 }
 
 #kolumna{
@@ -138,7 +176,7 @@ form{
 }
 
 .szukaj input{
-    height: 50px;
+    height: 40px;
     border-radius: 0;
     font-size: 18px;
     border: none;
@@ -146,7 +184,7 @@ form{
 }
 
 .szukaj button{
-    height: 50px;
+    height: 40px;
     border-radius: 0;
     font-size: 18px;
     background: #2E3F58;
@@ -354,3 +392,42 @@ form{
     opacity: 0.8;
 }
 
+
+
+
+
+
+
+/*  Dodaj kategorie  */
+
+.dodaj_ogloszenie h3{
+    margin-bottom: 30px;
+}
+
+.dodaj_ogloszenie label{
+    margin-top: 20px;
+}
+
+.dodaj_ogloszenie #typ label{
+    display: block;
+    padding: 0px;
+    margin: 5px;
+}
+
+.dodaj_ogloszenie button:hover a{
+    text-decoration: none;
+}
+
+
+
+/* okienko rejestracji  */
+
+#okienkoRejestracji .modal-body input{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 15px;
+}
+
+#okienkoRejestracji .modal-body{
+    margin-bottom: 10px;
+}

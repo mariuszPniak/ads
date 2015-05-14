@@ -107,7 +107,6 @@
         </div><!-- /.row -->
     </div>
   </div>
-</div>
 
 <div id="content">
   <div class="container">
@@ -170,71 +169,55 @@
 
       </div>    <!-- end col-md-3  kategorie -->
 
-      <form method="get" action="pp.html">
-      <div class="col-md-9">
-        <div class="col-md-12">
-          <h3 class="text-center">Wybierz kategorię</h3>
+      
+      <div class="col-md-9 dodaj_ogloszenie">
 
-          <div class="col-md-6 dodaj_kategorie">
-            <ul class="nav nav-stacked">
-              <li class="active"><a href="#praca" data-toggle="tab">Praca</a></li>
-              <li><a href="#sprzedam" data-toggle="tab">Sprzedam</a></li>
-              <li><a href="#nieruchomosci" data-toggle="tab">Nieruchomości</a></li>
-            </ul>
-          </div>
+        <h3 class="text-center">Dodaj ogłoszenie</h3>
         
+        <form method="get" action="pp.html">
+          <label for="select">Wybierz kategorię</label>
+          <select class="form-control" id="select">
+            <optgroup label="Praca">
+              <option value="volvo">Poszukuję</option>
+              <option value="saab">Zatrudnię</option>
+            </optgroup>
+            <optgroup label="Nieruchomości">
+              <option value="mercedes">Sprzedam</option>
+              <option value="audi">Wynajmę</option>
+            </optgroup>
+            <optgroup label="Kupię">
+              <option value="mercedes">Dom</option>
+              <option value="audi">Samochód</option>
+            </optgroup>
+          </select>        
 
-          <div class="col-md-6 dodaj_podkategorie">
-            <div class="tab-content">
+          <label for="tytul">Tytuł ogłoszenia</label>
+            <input type="text" class="form-control" id="tytul">
+          <label for="cena">Cena(opcjonalnie)</label>
+            <input type="text" class="form-control">
+          <label for="tresc">Treść ogłoszenia</label>
+            <textarea class="form-control" rows="6"></textarea>
 
-              <ul class="tab-pane" id="praca">
-                <a href="#"><li>Dam</li></a>
-                <a href="#"><li>Znajde</li></a>
-              </ul>
-
-              <ul class="tab-pane" id="sprzedam">
-                <a href="#"><li>Nerkę</li></a>
-                <a href="#"><li>Wątrobę</li></a>
-                <a href="#"><li>Wątrobę</li></a>
-              </ul>
-
-              <ul class="tab-pane" id="nieruchomosci" name="chuj">
-                <a href="#" name="szalas"><li>Szałas</li></a>
-                <a href="#"><li>Buda</li></a>
-              </ul>
-
-            </div>
-          </div>
+          <label for="zdjecie">Dodaj zdjęcie(opcjonalnie)</label>
+            <input type="file" name="foto" id="zdjecie" class="form-control">
           
-          <div class="clearfix">
-          </div>
+          <label for="typ" style="margin-top: 25px;">Typ ogłoszenia</label>
+            <div id="typ">
+              <label><input type="radio" name="radiobox" value="true"> Premium</label>
+              <label><input type="radio" name="radiobox" value="false"> Zwykłe</label>
+            </div>
 
-          <nav>
-            <ul class="pager">
-              <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Powrót</a></li>
-              <li class="next"><a href="#">Dalej <span aria-hidden="true">&rarr;</span></a></li>
-            </ul>
-          </nav>
+          <button type="button" class="btn btn-default pull-left" style="margin-top: 50px;"><a href="index.html/">Powrót</a></button>
+          <button type="submit" class="btn btn-default pull-right" style="margin-top: 50px;"><a href="#">Dodaj ogłoszenie</a></button>
 
-
-
-          <div class="clearfix">
-          </div>
-
-          <optgroup>
-            
-
-          </optgroup>          
-
-        </div>
+        </form>
 
       </div>
 
+     </div>   <!-- end row -->
+  </div>   <!-- end container --> 
+</div>    <!-- end content -->
 
-
-    </div>
-  </div>
-</div>
 
 <div id="oddzielenie"></div>
 
