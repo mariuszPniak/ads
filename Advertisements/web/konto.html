@@ -37,30 +37,6 @@
 </div>
 
 
-<!--
-<nav class="navbar navbar-default nawigacja" style="background-color: white; border-bottom: 1px solid grey;">
-        <div class="container menu">
-            <div class="navbar-header">
-                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#"><img alt="logo" src="img/logo.png"></a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="main-menu">
-                <ul class="nav navbar-nav navbar-right text-center">
-                    <li><a href="#" class="active-li">Home</a></li>
-                    <li><a href="#">Dodaj ogłoszenie</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                </ul>
-            </div>
-        </div>
-</nav>
--->
-
 
 <div class="container gora_strony">
   <div class="row">
@@ -145,47 +121,74 @@
       </div>    <!-- end col-md-3  kategorie -->
 
       
-      <div class="col-md-9 dodaj_ogloszenie">
+      <div class="col-md-9 twoje_konto">
 
-        <h3 class="text-center">Dodaj ogłoszenie</h3>
+        <h3 class="text-center">Twoje konto</h3>
         
-        <form method="get" action="pp.html">
-          <label for="select">Wybierz kategorię</label>
-          <select class="form-control" id="select">
-            <optgroup label="Praca">
-              <option value="volvo">Poszukuję</option>
-              <option value="saab">Zatrudnię</option>
-            </optgroup>
-            <optgroup label="Nieruchomości">
-              <option value="mercedes">Sprzedam</option>
-              <option value="audi">Wynajmę</option>
-            </optgroup>
-            <optgroup label="Kupię">
-              <option value="mercedes">Dom</option>
-              <option value="audi">Samochód</option>
-            </optgroup>
-          </select>        
+        <ul class="nav nav-pills nav-stacked col-md-4">
+          <li class="active"><a href="#twoje_dane" data-toggle="tab" class="active">Twoje konto</a></li>
+          <li><a href="#edytuj_dane" data-toggle="tab">Edytuj swoje dane</a></li>
+        </ul>
 
-          <label for="tytul">Tytuł ogłoszenia</label>
-            <input type="text" class="form-control" id="tytul" requiered>
-          <label for="cena">Cena(opcjonalnie)</label>
-            <input type="text" class="form-control">
-          <label for="tresc">Treść ogłoszenia</label>
-            <textarea class="form-control" rows="6"></textarea>
+        <div class="tab-content">
+          <div class="tab-pane fade in active col-md-8" id="twoje_dane">
+            <table class="table table-bordered text-center">
+              <tr>
+                <td>Adres e-mail</td>
+                <td>pomykacz.sz@gmail.com</td>
+              </tr>
+              <tr>
+                <td>Login</td>
+                <td>artek</td>
+              </tr>
+              <tr>
+                <td>Telefon</td>
+                <td>111-222-333</td>
+              </tr>
+              <tr>
+                <td>Miejscowość</td>
+                <td>Tarnów</td>
+              </tr>
+              <tr>
+                <td>Dodanych ogłoszeń</td>
+                <td>12</td>
+              </tr>
+            </table>
+          </div>
+          <div class="tab-pane fade col-md-8" id="edytuj_dane">
+            <form method="get" action="#">
+              <input type="text" class="form-control" placeholder="Nowy login">
+              <input type="text" class="form-control" placeholder="Nowe hasło">
+              <input type="text" class="form-control" placeholder="Nowy numer telefonu">
+              <input type="text" class="form-control" placeholder="Nowa miejscowość">
 
-          <label for="zdjecie">Dodaj zdjęcie(opcjonalnie)</label>
-            <input type="file" name="foto" id="zdjecie" class="form-control">
-          
-          <label for="typ" style="margin-top: 25px;">Typ ogłoszenia</label>
-            <div id="typ">
-              <label><input type="radio" name="radiobox" value="true"> Premium</label>
-              <label><input type="radio" name="radiobox" value="false"> Zwykłe</label>
-            </div>
+              <button type="submit" class="btn btn-info pull-right">Prześlij</button>
+            </form>
+          </div>
 
-          <button type="button" class="btn btn-default pull-left" style="margin-top: 50px;"><a href="index.html/">Powrót</a></button>
-          <button type="submit" class="btn btn-default pull-right" style="margin-top: 50px;"><a href="#">Dodaj ogłoszenie</a></button>
+          <div class="col-md-12">
+              <h3 class="text-center">Twoje ogłoszenia</h3>
 
-        </form>
+              <div class="ogloszenie_usera">
+                <h5>Sprzedam rybki</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis voluptatibus consequuntur ducimus, reprehenderit ullam aliquam nulla vitae laudantium assumenda tempore dolorem cupiditate numquam veritatis dicta eveniet hic quo rerum id?</p>
+              </div>
+              <div class="ogloszenie_usera">
+                <h5>Szukam pracy</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis voluptatibus consequuntur ducimus, reprehenderit ullam aliquam nulla vitae laudantium assumenda tempore dolorem cupiditate numquam veritatis dicta eveniet hic quo rerum id?</p>
+              </div>
+              <div class="ogloszenie_usera">
+                <h5>Sprzedam samochód</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis voluptatibus consequuntur ducimus, reprehenderit ullam aliquam nulla vitae laudantium assumenda tempore dolorem cupiditate numquam veritatis dicta eveniet hic quo rerum id?</p>
+              </div>
+              
+              <form method="get" action="#" class="usun">
+                <p>Podaj numer ogłoszenia, które chcesz usunąć:</p><input type="text" class="form-control"><button type="submit" class="btn btn-danger">Usuń</button>
+              </form>
+
+          </div>
+        </div>
+        
 
       </div>
 

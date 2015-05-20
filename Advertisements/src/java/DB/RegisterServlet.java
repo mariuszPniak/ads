@@ -34,6 +34,39 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try (PrintWriter out = response.getWriter()) {
+
+            Statement stmt = null;
+            Connection conn = DBconnection.connection();
+            try {
+                stmt = conn.createStatement();
+
+                String sql = "INSERT INTO public.user (email,login,password) "
+                        + "values('" + request.getParameter("email") + "','" + request.getParameter("login") + "','" + request.getParameter("password") + "');";
+
+               // out.println(sql);
+                
+                response.sendRedirect("index.html");
+                
+                stmt.executeQuery(sql);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                out.close();
+                try {
+                    if (stmt != null) {
+                        stmt.close();
+                    }
+                    if (conn != null) {
+                        conn.close();
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -65,41 +98,7 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-
-            Statement stmt = null;
-            Connection conn = DBconnection.connection();
-            try {
-                stmt = conn.createStatement();
-
-                if(request.getParameter("email").equals("pomykacz.sz@gmail.com")){
-                    out.println("Już istnieje");
-                }
-                else
-                {
-                String sql = "INSERT INTO public.user (email,login,password) "
-                        + "values('" + request.getParameter("email") + "','" + request.getParameter("login") + "','" + request.getParameter("password") + "');";
-                
-                out.println(sql);
-                
-                stmt.executeQuery(sql);
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                out.close();
-                try {
-                    if (stmt != null) {
-                        stmt.close();
-                    }
-                    if (conn != null) {
-                        conn.close();
-                    }
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }
+        
     }
 
     /**
