@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+
+<select name="author" size="1">
+      <option value="Tan Ah Teck">Ah Teck</option>
+      <option value="Mohammad Ali">Ali</option>
+      <option value="Kumar">Kumar</option>
+    </select>
+
+
+    <div class="container">
+  
+        <div class="row">
+        
+
+          <div class="col-md-7">
+           <!-- <img class="img-responsive" src="img/girls.png" />-->
+          </div>
+          
+              <div class="col-md-5 jumbotron pudlo">
+                <div class="pudlo2">
+                    <form role="form">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Adres E-mail</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Hasło</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Hasło">
+                      </div>
+                      <div class="checkbox pull-left">
+                        <label>
+                          <input type="checkbox"> Zapamiętaj hasło
+                        </label>
+                      </div>
+                      <button class="btn btn-default pull-right rejestracja" data-toggle="modal" data-target="#okienkoRejestracji">Rejestracja</button>
+                      <button id="zalogoj" type="submit" class="btn btn-default pull-right zaloguj">Zaloguj</button>
+                    </form>
+                </div>
+
+              </div> 
+
+              <div class="modal fade" style="z-index: 100;" id="okienkoRejestracji" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 5%">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+        <h3 class="modal-title text-center" id="myModalLabel">Rejestracja</h3>
+                    </div>
+                    
+                      <div class="modal-body">
+                        <input type="text" class="form-control" placeholder="Twój login">
+                        <input type="text" class="form-control" placeholder="Twój e-mail">
+                        <input type="password" class="form-control" placeholder="Podaj swoje hasło">
+                        <input type="password" class="form-control" placeholder="Powtórz hasło">
+                      </div>
+                      <div class="modal-footer">
+                          <label class="pull-left"><input type="checkbox"> Akceptuję regulamin serwisu</label>
+                        <button type="button" class="btn btn-primary">Zarejestruj się</button>
+                      </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+        </div>
+  </div>
+
+          <script src="js/jquery.js"> </script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+   
+</body>
+</html>
