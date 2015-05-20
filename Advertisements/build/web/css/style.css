@@ -29,11 +29,9 @@ body{
     top: -1px;
 }
 
-
 .pasek_gora{
     border-bottom: 2px solid grey;
 }
-
 
 .przycisk{
     margin-right: 10%;
@@ -453,11 +451,6 @@ form{
 
 .twoje_konto table td:nth-child(1){
     font-weight: bold;
-
-}
-
-.twoje_konto table td:nth-child(2){
-
 }
 
 .twoje_konto input{
@@ -497,4 +490,3 @@ form{
     float: left;
     margin-right: 15px;
 }
-

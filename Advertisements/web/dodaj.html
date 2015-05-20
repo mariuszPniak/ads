@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/style2.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+
 
 
 <!-- Widoczne tylko po zalogowaniu -->
@@ -37,76 +38,26 @@
 
 
 
-<nav class="navbar navbar-default nawigacja" style="background-color: white; border-bottom: 1px solid grey;">
-        <div class="container menu">
-            <div class="navbar-header">
-                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#"><img alt="logo" src="img/logo.png"></a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="main-menu">
-                <ul class="nav navbar-nav navbar-right text-center">
-                    <li><a href="#" class="active-li">Home</a></li>
-                    <li><a href="#">Dodaj ogłoszenie</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                </ul>
-            </div>
-        </div>
-</nav>
-
-
-
-<div id="pasek_srodek">
-  <div id="srodek_tlo">
-    <div class="container box_container">
-       <div class="row">
-          <div class="col-md-6">
-            <div class="input-group szukaj">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
-              </span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-          <div class="col-md-2">
-            <select class="form-control pole_wyboru">
-              <option>Wszystkio</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <select class="form-control pole_wyboru">
-              <option>Wszystkio</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <select class="form-control pole_wyboru">
-              <option>Wszystkio</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-            
-
-
-          </div>
-        </div><!-- /.row -->
+<div class="container gora_strony">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="#"><img alt="logo" src="img/logo.png"></a>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group szukaj">
+          <input type="text" class="form-control" placeholder="Wyszukaj ogłoszenie...">
+          <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
+         </span>
+      </div><!-- /input-group -->
     </div>
   </div>
+</div>
+
+
+<div class="pasek_gora">
+</div>
+
 
 <div id="content">
   <div class="container">
@@ -192,7 +143,7 @@
           </select>        
 
           <label for="tytul">Tytuł ogłoszenia</label>
-            <input type="text" class="form-control" id="tytul">
+            <input type="text" class="form-control" id="tytul" requiered>
           <label for="cena">Cena(opcjonalnie)</label>
             <input type="text" class="form-control">
           <label for="tresc">Treść ogłoszenia</label>
@@ -217,7 +168,6 @@
      </div>   <!-- end row -->
   </div>   <!-- end container --> 
 </div>    <!-- end content -->
-
 
 <div id="oddzielenie"></div>
 
