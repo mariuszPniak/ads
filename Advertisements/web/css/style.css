@@ -222,6 +222,7 @@ form{
     width: 100%;
     border: solid 2px #F2F2F0;
     padding: 30px;
+    min-height: 180px;
 }
 
 .ogloszenie_box img{
@@ -232,6 +233,7 @@ form{
 
 .ogloszenie_box p{
     display: inline;
+    min-height: 100px;
 }
 
 #podkategorie{

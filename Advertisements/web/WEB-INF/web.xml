@@ -16,6 +16,10 @@
         <servlet-name>AdvertServlet</servlet-name>
         <servlet-class>DB.AdvertServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>DB.IndexServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>AdvertServlet</servlet-name>
         <url-pattern>/advert</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/index.html</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

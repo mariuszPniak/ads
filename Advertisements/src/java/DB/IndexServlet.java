@@ -6,11 +6,12 @@
 package DB;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -23,16 +24,24 @@ import javax.servlet.http.HttpSession;
  *
  * @author Mariusz
  */
-public class LoginServlet extends HttpServlet {
+public class IndexServlet extends HttpServlet {
 
-
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
         
         String email=request.getParameter("email");
         String password=request.getParameter("password");
+        List<Ads> ads = new ArrayList<Ads>();
         
         ResultSet result = null;
         Statement stmt = null;
@@ -41,14 +50,18 @@ public class LoginServlet extends HttpServlet {
                 stmt = conn.createStatement();
 
                 HttpSession session = request.getSession();
-                String sql = "SELECT * from public.user where email='"+email+"' and password='"+password+"';";
+                String sql = "select * from advert order by advert_date limit 10";
                 result=stmt.executeQuery(sql);
                 
                 if (result==null || !result.isBeforeFirst()){
                 } else {
-                    session.setAttribute("LogEmail", email);
+                    while(result.next()){
+                        Ads adRecord = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("subcategory"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
+                        ads.add(adRecord);
+                    }
                 }
-                response.sendRedirect("index.html");
+                request.setAttribute("Ads", ads);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
