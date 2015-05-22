@@ -9,10 +9,15 @@ body{
     width: 100%;
     padding-top: 5px;
     margin-top: -34px;
+    color: white;
 }
 
 .zalogowany span{
     margin-right: 8px;
+}
+
+.zalogowany a{
+    color: inherit;
 }
 
 
@@ -37,6 +42,18 @@ body{
     margin-right: 10%;
 }
 
+.przycisk-dodaj button{
+    background-color: #47576E!important;
+    width: 100%;
+    margin-top: 34px;
+    font-size: 18px;
+}
+
+.przycisk-dodaj button:hover{
+    background-color: rgb(242, 242, 240)!important;
+    color: #47576E!important;
+}
+
 .przerwa{
     clear: both;
 }
@@ -50,7 +67,6 @@ body{
     clear: both;
     border-bottom: 2px solid grey;
 }
-
 
 .slider img{
     padding-top: 20px;
@@ -81,8 +97,12 @@ form{
     color:white;
 }
 
-#zalogoj{
+.zaloguj{
     margin-right: 8px;
+}
+
+.rejestracja{
+    margin-top: -40px;
 }
 
 #kolumna{
@@ -489,4 +509,18 @@ form{
     width: 10%;
     float: left;
     margin-right: 15px;
+}
+
+
+
+
+
+/* Po rejestracji */
+
+.rejestracja-info p{
+    color: white;
+}
+
+.rejestracja-info button{
+    width: 100%;
 }
