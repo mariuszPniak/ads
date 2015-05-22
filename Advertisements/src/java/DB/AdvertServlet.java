@@ -1,27 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DB;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
- * @author Mariusz
+ * @author szymon
  */
-public class RegisterServlet extends HttpServlet {
+public class AdvertServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,21 +33,35 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+            GregorianCalendar date = new GregorianCalendar();
+            int year = date.get(Calendar.YEAR);
+            int month = date.get(Calendar.MONTH);
+            int day = date.get(Calendar.DAY_OF_MONTH);
 
+            
             Statement stmt = null;
             Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
-
-                String sql = "INSERT INTO public.user (email,login,password) "
-                        + "values('" + request.getParameter("email") + "','" + request.getParameter("login") + "','" + request.getParameter("password") + "');";
-
-               // out.println(sql);
+                int id_user=1;
+   
+                ResultSet rs = stmt.executeQuery("Select id_user from public.user where email='" +request.getSession().getAttribute("LogEmail") + "'");
+                while (rs.next()) {
+                    id_user = rs.getInt(1);
+                }
+                rs.close();
                 
-                response.sendRedirect("registry.html");
+                String sql = "INSERT INTO public.advert (id_advert,id_user,category,subcategory,title,advert_date,price,content,premium) "
+                        + "values(17," + id_user + ",'praca','" + request.getParameter("subcategory") + "','" + request.getParameter("title") +"', '" + year+"-05-"+ day+"'," + request.getParameter("price") +",'" + request.getParameter("content") + "','" +request.getParameter("premium")+ "');";
                 
+                
+                
+                response.sendRedirect("index.jsp");
                 stmt.executeQuery(sql);
+                
 
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,7 +78,6 @@ public class RegisterServlet extends HttpServlet {
                     ex.printStackTrace();
                 }
             }
-
         }
     }
 
@@ -82,7 +94,6 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
     }
 
     /**
@@ -97,8 +108,6 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.setContentType("text/html;charset=UTF-8");
-        
     }
 
     /**

@@ -10,125 +10,98 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>Portal ogłoszeniowy - Szukajka</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="css/style2.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
 
 
         <!-- Widoczne tylko po zalogowaniu -->
 
-        <c:if test="${sessionScope.LogEmail != null}">
-
+        <c:if test="${sessionScope.LogEmail != null && sessionScope.LogEmail != ''}">
             <div class="zalogowany">
                 <div class="container text-center">
-                    <div class="row hidden-xs">
-                        <div class="col-sm-6">
-                            <span class="glyphicon glyphicon-user"></span>pomykacz.sz@gmail.com
-                        </div>
-                        <div class="col-sm-6">
-                            <span class="glyphicon glyphicon-log-out"></span><a href="logout">wyloguj się</a>
-                        </div>
+                  <div class="row hidden-xs">
+                    <div class="col-sm-6">
+                        <span class="glyphicon glyphicon-user"></span>${sessionScope.LogEmail}
                     </div>
-
-                    <div class="row visible-xs">
-                        <div class="col-xs-8">
-                            <span class="glyphicon glyphicon-user"></span>pomykacz.sz@gmail.com
-                        </div>
-                        <div class="col-xs-4">
-                            <span class="glyphicon glyphicon-log-out"></span><a href="logout">wyloguj</a>
-                        </div>
+                    <div class="col-sm-6">
+                        <span class="glyphicon glyphicon-log-out"></span><a href="logout">wyloguj się</a>
                     </div>
+                  </div>
 
+                  <div class="row visible-xs">
+                    <div class="col-xs-8">
+                      <span class="glyphicon glyphicon-user"></span>${sessionScope.LogEmail}
+                    </div>
+                    <div class="col-xs-4">
+                      <span class="glyphicon glyphicon-log-out"></span><a href="logout">wyloguj się</a>
+                    </div>
+                  </div>
                 </div>
             </div>
-
+        </c:if>
+        
+        <c:if test="${sessionScope.LogEmail == null}">
+            <div class="zalogowany">
+                <div class="container">
+                    <p class="text-center">Zaloguj się, aby móc dodać ogłoszenie.</p>
+                </div>
+            </div>
         </c:if>
 
 
-
-        <nav class="navbar navbar-default nawigacja" style="background-color: white; border-bottom: 1px solid grey;">
-            <div class="container menu">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="#"><img alt="logo" src="img/logo.png"></a>
+              <div class="container gora_strony">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="index.jsp"><img alt="logo" src="img/logo.png"></a>
+                  </div>
+                  
+                  <c:if test="${sessionScope.LogEmail == null}">
+                    <div class="col-md-offset-4 col-md-4">
+                      <div class="input-group szukaj">
+                          <input type="text" class="form-control" placeholder="Wyszukaj ogłoszenie...">
+                          <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
+                         </span>
+                      </div><!-- /input-group -->
+                    </div>
+                  </c:if>
+                    
+                  <c:if test="${sessionScope.LogEmail != null && sessionScope.LogEmail != ''}">
+                    <div class="col-md-4 przycisk-dodaj">
+                        <a href="dodaj.jsp"><button type="button" class="btn btn-info">Dodaj ogłoszenie</button></a>
+                    </div>    
+                    <div class="col-md-4">
+                      <div class="input-group szukaj">
+                          <input type="text" class="form-control">
+                          <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
+                         </span>
+                      </div><!-- /input-group -->
+                    </div>      
+                  </c:if>              
                 </div>
+              </div>
 
-                <div class="collapse navbar-collapse" id="main-menu">
-                    <ul class="nav navbar-nav navbar-right text-center">
-                        <li><a href="#" class="active-li">Home</a></li>
-                        <li><a href="#">Dodaj ogłoszenie</a></li>
-                        <li><a href="#">Kontakt</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="container">
-            <div class="row" >
-
-                <div class="col-md-6">
-                    <div class="input-group szukaj">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
-                        </span>
-                    </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
-                <div class="col-md-2">
-                    <select class="form-control pole_wyboru">
-                        <option>Wszystkio</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-control pole_wyboru">
-                        <option>Wszystkio</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-control pole_wyboru">
-                        <option>Wszystkio</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-
+               
+              <div class="pasek_gora">
+              </div>
 
 
         <div class="slider">
             <div id="tlo">
-                <c:if test="${sessionScope.LogEmail == null}">
+                <c:if test="${sessionScope.LogEmail == null || sessionScope.LogEmail == ''}">
                     <div class="container">
-
                         <div class="row">
-
-
                             <div class="col-md-7">
                                 <!-- <img class="img-responsive" src="img/girls.png" />-->
                             </div>
 
                             <div class="col-md-5 jumbotron pudlo">
                                 <div class="pudlo2">
-                                    <form role="form" action="login" method="POST">
+                                    <form action="login" method="POST" role="form">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Adres E-mail</label>
                                             <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail">
@@ -137,19 +110,15 @@
                                             <label for="exampleInputPassword1">Hasło</label>
                                             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Hasło">
                                         </div>
-                                        <div class="checkbox pull-left">
-                                            <label>
-                                                <input type="checkbox"> Zapamiętaj hasło
-                                            </label>
-                                        </div>
-                                        <button class="btn btn-default pull-right rejestracja" data-toggle="modal" data-target="#okienkoRejestracji">Rejestracja</button>
-                                        <button id="zalogoj" type="submit" class="btn btn-default pull-right zaloguj">Zaloguj</button>
+                                        <div class="pull-left">
+                                            <button type="submit" class="btn btn-default zaloguj">Zaloguj</button>
+                                        </div>                                             
                                     </form>
+                                    <button class="btn btn-default pull-right rejestracja" data-toggle="modal" data-target="#okienkoRejestracji">Rejestracja</button>                                     
                                 </div>
-
                             </div> 
 
-                            <div class="modal fade" id="okienkoRejestracji" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 5%">
+                            <div class="modal fade" id="okienkoRejestracji" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -158,124 +127,116 @@
                                         </div>
                                         <form method="post" action="register">
                                             <div class="modal-body">
-                                                <input type="text" class="form-control" placeholder="Twój login">
-                                                <input type="text" class="form-control" placeholder="Twój e-mail">
-                                                <input type="password" class="form-control" placeholder="Podaj swoje hasło">
-                                                <input type="password" class="form-control" placeholder="Powtórz hasło">
+                                                <input type="text" name="email" class="form-control" placeholder="Twój e-mail" required>
+                                                <input type="text" name="login" class="form-control" placeholder="Twój login" required>
+                                                <input type="password" name="password" class="form-control" placeholder="Podaj swoje hasło" required>
+                                                <input type="password" class="form-control" name="password2" placeholder="Powtórz hasło" required>
                                             </div>
                                             <div class="modal-footer">
-                                                <label class="pull-left"><input type="checkbox"> Akceptuję regulamin serwisu</label>
-                                                <button type="button" class="btn btn-primary">Zarejestruj się</button>
+                                                <label class="pull-left"><input type="checkbox" required> Akceptuję regulamin serwisu</label>
+                                                <button type="submit" class="btn btn-primary">Zarejestruj się</button>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </c:if>
-
-
             </div>
-
         </div>
 
 
 
         <div class="container kolumny3">
-
             <div class="row">
-
-                <div class="col-md-4">
-                    <div id="kolumna">
-
-                        <div id="naglowek">
-                            <img src="img/ico1.png">
-                            <h4>Nagłówek</h4>
-                        </div>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptate dolore facilis reprehenderit tempora non illo consequuntur alias iste. Repellat provident, omnis debitis dignissimos molestiae quia quas autem voluptas placeat.</p>
+                
+              <div class="col-md-4">
+                <div id="kolumna">
+                    <div id="naglowek">
+                      <img src="img/ico1.png">
+                      <h4>Nagłówek</h4>
                     </div>
-
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptate dolore facilis reprehenderit tempora non illo consequuntur alias iste. Repellat provident, omnis debitis dignissimos molestiae quia quas autem voluptas placeat.</p>
                 </div>
+              </div>
 
-                <div class="col-md-4" >
-                    <div id="kolumna">
-                        <div id="naglowek">
-                            <img src="img/ico2.png">
-                            <h4>Nagłówek</h4>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptate dolore facilis reprehenderit tempora non illo consequuntur alias iste. Repellat provident, omnis debitis dignissimos molestiae quia quas autem voluptas placeat.</p>
+              <div class="col-md-4" >
+                <div id="kolumna">
+                    <div id="naglowek">
+                      <img src="img/ico2.png">
+                      <h4>Nagłówek</h4>
                     </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptate dolore facilis reprehenderit tempora non illo consequuntur alias iste. Repellat provident, omnis debitis dignissimos molestiae quia quas autem voluptas placeat.</p>
                 </div>
+              </div>
 
-                <div class="col-md-4">
-                    <div id="kolumna">
-                        <div id="naglowek">
-                            <img src="img/ico3.png">
-                            <h4>Nagłówek</h4>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptate dolore facilis reprehenderit tempora non illo consequuntur alias iste. Repellat provident, omnis debitis dignissimos molestiae quia quas autem voluptas placeat.</p>
-                    </div>
+              <div class="col-md-4">
+                <div id="kolumna">
+                  <div id="naglowek">
+                     <img src="img/ico3.png">
+                     <h4>Nagłówek</h4>
+                  </div>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptate dolore facilis reprehenderit tempora non illo consequuntur alias iste. Repellat provident, omnis debitis dignissimos molestiae quia quas autem voluptas placeat.</p>
                 </div>
+              </div>
 
             </div>
         </div>
 
+        
         <div id="pasek_srodek">
             <div id="srodek_tlo">
-                <div class="container box_container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="input-group szukaj">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
-                                </span>
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
-                        <div class="col-md-2">
-                            <select class="form-control pole_wyboru">
-                                <option>Wszystkio</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <select class="form-control pole_wyboru">
-                                <option>Wszystkio</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <select class="form-control pole_wyboru">
-                                <option>Wszystkio</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
+              <div class="container box_container">
+                 <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group szukaj">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
+                        </span>
+                      </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-md-2">
+                      <select class="form-control pole_wyboru">
+                        <option>Wszystkio</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2">
+                      <select class="form-control pole_wyboru">
+                        <option>Wszystkio</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2">
+                      <select class="form-control pole_wyboru">
+                        <option>Wszystkio</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
 
 
 
                     </div>
-                </div><!-- /.row -->
+                  </div><!-- /.row -->
+              </div>
             </div>
-        </div>
-    </div>
 
+        
     <div id="content">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-
 
                     <div class="kategorie">
                         <div id="kat1">
@@ -340,6 +301,10 @@
                         <h4>Zlece wykonanie prostej strony www</h4>
                         <h4 id="data">2014-12-19</h4>
 
+                        <div class="clearfix">
+                        </div>
+
+                        <img src="img/advert.png" alt="ogloszenie"/>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
                             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
                             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
@@ -347,13 +312,18 @@
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
-
                     </div>
+
+
                     <div class="ogloszenie_box">
                         <a href="#"><h4>mateooo3</h4></a>
                         <h4>Szukam taniej ładnej sprzątaczki. Przyjmę od zaraz :))</h4>
                         <h4 id="data">2014-12-18</h4>
 
+                        <div class="clearfix">
+                        </div>
+
+                        <img src="img/advert.png" alt="ogloszenie"/>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
                             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
                             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
@@ -361,27 +331,36 @@
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
-
                     </div>
+
+
                     <div class="ogloszenie_box">
                         <a href="#"><h4>płotka</h4></a>
                         <h4>Sprzedam akwarium z żywymi rybkami!</h4>
                         <h4 id="data">2014-12-18</h4>
+                        <div class="clearfix">
+                        </div>
 
+                        <img src="img/advert.png" alt="ogloszenie"/>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
                             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
                             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
                             Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
-                            ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
-
+                            ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p>
                     </div>
+
+
                     <div class="ogloszenie_box">
                         <a href="#"><h4>nataliaHaH69</h4></a>
                         <h4>Zatrudnię kucharza który umie robić pieroga</h4>
                         <h4 id="data">2014-12-19</h4>
 
+                        <div class="clearfix">
+                        </div>
+
+                        <img src="img/advert.png" alt="ogloszenie"/>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
                             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
                             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
@@ -389,13 +368,18 @@
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
-
                     </div>
+
+
                     <div class="ogloszenie_box">
                         <a href="#"><h4>maciej3772</h4></a>
                         <h4>Zlece wykonanie prostej strony www</h4>
                         <h4 id="data">2014-12-19</h4>
 
+                        <div class="clearfix">
+                        </div>
+
+                        <img src="img/advert.png" alt="ogloszenie"/>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
                             Ea inventore ipsam quibusdam beatae obcaecati quos ab, eius dolores, 
                             consectetur temporibus, ex quisquam debitis illum perspiciatis deleniti veniam. 
@@ -403,7 +387,6 @@
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.Error aperiam veritatis ad vero tenetur reiciendis est, consequuntur nisi ex, 
                             ipsam obcaecati.<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
-
                     </div>
 
                     <nav id="nav_numer">
