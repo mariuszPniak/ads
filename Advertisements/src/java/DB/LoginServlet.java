@@ -43,11 +43,11 @@ public class LoginServlet extends HttpServlet {
                 String sql = "SELECT * from public.user where email='"+email+"' and password='"+password+"';";
                 result=stmt.executeQuery(sql);
                 
-                if (result==null){
+                if (result==null || !result.isBeforeFirst()){
                 } else {
                     session.setAttribute("LogEmail", email);
-                    response.sendRedirect("index.jsp");
                 }
+                response.sendRedirect("index.jsp");
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
