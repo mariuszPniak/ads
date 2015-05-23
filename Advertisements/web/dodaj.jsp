@@ -19,7 +19,7 @@
   <div class="container text-center">
     <div class="row hidden-xs">
       <div class="col-sm-6">
-        <span class="glyphicon glyphicon-user"></span>pomykacz.sz@gmail.com
+        <span class="glyphicon glyphicon-user"></span>${sessionScope.LogEmail}
       </div>
       <div class="col-sm-6">
         <span class="glyphicon glyphicon-log-out"></span>wyloguj się
@@ -28,7 +28,7 @@
 
     <div class="row visible-xs">
       <div class="col-xs-8">
-        <span class="glyphicon glyphicon-user"></span>pomykacz.sz@gmail.com
+        <span class="glyphicon glyphicon-user"></span>${sessionScope.LogEmail}
       </div>
       <div class="col-xs-4">
         <span class="glyphicon glyphicon-log-out"></span>wyloguj
@@ -64,63 +64,68 @@
 <div id="content">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        
-        <div class="kategorie">
-          <div id="kat1">
-            <h4><span class="glyphicon glyphicon-user" aria-hidden="true"> Praca</h4> 
-          </div>
-          <div id="podkategorie">
-                      <ul>
-                        <li><a href="#">pierwsze cos</a></li>
-                        <li><a href="#">jako tako</a></li>
-                        <li><a href="#">ciÄÅ¼ka praca</a></li>
-                        <li><a href="#">sprzÄtaczka</a></li>
-                        <li><a href="#">pani lekkich obyczajÃ³w</a></li>
-                        <li><a href="#">no juz nie co</a></li>
-                        <li><a href="#">sprzÄtaczka</a></li>
-                        <li><a href="#">pani lekkich obyczajÃ³w</a></li>
-                        <li><a href="#">no juz nie co</a></li>
-                      </ul>
-          </div>          
-        </div>
+        <div class="col-md-3">
 
-        <div class="kategorie">
-           <div id="kat1">
-             <h4><span class="glyphicon glyphicon-home" aria-hidden="true"> NieruchomoÅci</h4>
-           </div>
-           <div id="podkategorie">
-                      <ul>
-                        <li><a href="#">pierwsze cos</a></li>
-                        <li><a href="#">jako tako</a></li>
-                        <li><a href="#">ciÄÅ¼ka praca</a></li>
-                        <li><a href="#">sprzÄtaczka</a></li>
-                        <li><a href="#">pani lekkich obyczajÃ³w</a></li>
-                        <li><a href="#">no juz nie co</a></li>
-                      </ul>
-          </div>  
-        </div>
+            <div class="kategorie">
+                <div id="kat1">
+                    <h4>Praca</h4> 
+                </div>
+                <div id="podkategorie">
+                    <ul>
+                        <li><a href="#">Poszukuję</a></li>
+                        <li><a href="#">Zatrudnię</a></li>
+                    </ul>
+                </div>          
+            </div>
 
-        <div class="kategorie">
-           <div id="kat1">
-             <h4><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> KupiÄ/Sprzedam</h4>
-           </div>
-           <div id="podkategorie">
-                      <ul>
-                        <li><a href="#">pierwsze cos</a></li>
-                        <li><a href="#">jako tako</a></li>
-                        <li><a href="#">ciÄÅ¼ka praca</a></li>
-                        <li><a href="#">sprzÄtaczka</a></li>
-                        <li><a href="#">pani lekkich obyczajÃ³w</a></li>
-                        <li><a href="#">no juz nie co</a></li>
-                        <li><a href="#">sprzÄtaczka</a></li>
-                        <li><a href="#">pani lekkich obyczajÃ³w</a></li>
-                        <li><a href="#">no juz nie co</a></li>
-                      </ul>
-          </div>  
-        </div>
+            <div class="kategorie">
+                <div id="kat1">
+                    <h4>Usługi</h4>
+                </div>
+                <div id="podkategorie">
+                    <ul>
+                        <li><a href="#">Oferuję</a></li>
+                        <li><a href="#">Poszukuję</a></li>
+                        <li><a href="#">Finansowe</a></li>
+                        <li><a href="#">Budowlane</a></li>
+                    </ul>
+                </div>  
+            </div>
 
-      </div>    <!-- end col-md-3  kategorie -->
+            <div class="kategorie">
+                <div id="kat1">
+                    <h4>Komputery</h4>
+                </div>
+                <div id="podkategorie">
+                    <ul>
+                        <li><a href="#">Kupię</a></li>
+                        <li><a href="#">Sprzedam</a></li>
+                        <li><a href="#">Gry, Programy</a></li>
+                        <li><a href="#">Akcesoria</a></li>
+                        <li><a href="#">Wymienię</a></li>
+                        <li><a href="#">Inne</a></li>
+                    </ul>
+                </div>  
+            </div>
+
+            <div class="kategorie">
+                <div id="kat1">
+                    <h4>Motoryzacja</h4>
+                </div>
+                <div id="podkategorie">
+                    <ul>
+                        <li><a href="#">Audi</a></li>
+                        <li><a href="#">BMW</a></li>
+                        <li><a href="#">Ford</a></li>
+                        <li><a href="#">Renault</a></li>
+                        <li><a href="#">Toyota</a></li>
+                        <li><a href="#">Motocykle i Quady</a></li>
+                        <li><a href="#">Części i akcesoria</a></li>
+                    </ul>
+                </div>  
+            </div>
+
+        </div>    <!-- end col-md-3  kategorie -->
 
       
       <div class="col-md-9 dodaj_ogloszenie">
@@ -129,7 +134,7 @@
         
         <form method="post" action="advert">
           <label for="select">Wybierz kategorię</label>
-          <select class="form-control" name="subcategory" id="select">
+          <select class="form-control" name="category" id="select">
             <optgroup label="Praca">
               <option value="volvo">Poszukuję</option>
               <option value="saab">Zatrudnię</option>
@@ -152,7 +157,7 @@
             <textarea class="form-control" name="content" rows="6"></textarea>
 
           <label for="zdjecie">Dodaj zdjęcie(opcjonalnie)</label>
-            <input type="file" name="foto" id="zdjecie" class="form-control">
+            <input type="file" id="zdjecie" class="form-control">
           
           <label for="typ" style="margin-top: 25px;">Typ ogłoszenia</label>
             <div id="typ">
