@@ -16,11 +16,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+ 
+
+
+
 /**
  *
  * @author szymon
  */
+
+
 public class AdvertServlet extends HttpServlet {
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,28 +47,35 @@ public class AdvertServlet extends HttpServlet {
             int year = date.get(Calendar.YEAR);
             int month = date.get(Calendar.MONTH);
             int day = date.get(Calendar.DAY_OF_MONTH);
-
+            
             
             Statement stmt = null;
             Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
                 int id_user=1;
-   
+                int ilosc=0;
+                
                 ResultSet rs = stmt.executeQuery("Select id_user from public.user where email='" +request.getSession().getAttribute("LogEmail") + "'");
                 while (rs.next()) {
                     id_user = rs.getInt(1);
                 }
                 rs.close();
                 
-                String sql = "INSERT INTO public.advert (id_advert,id_user,category,subcategory,title,advert_date,price,content,premium) "
-                        + "values(17," + id_user + ",'praca','" + request.getParameter("subcategory") + "','" + request.getParameter("title") +"', '" + year+"-05-"+ day+"'," + request.getParameter("price") +",'" + request.getParameter("content") + "','" +request.getParameter("premium")+ "');";
+                ResultSet rs2 = stmt.executeQuery("select count(id_advert) as liczba from public.advert;");
+                while (rs2.next()) {
+                    ilosc = rs2.getInt("liczba");
+                }
+                rs2.close();
+                ilosc = ilosc + 1;
                 
                 
+                String sql = "INSERT INTO public.advert (id_advert,id_user,category,title,advert_date,price,content,premium) "
+                        + "values(" + ilosc + "," + id_user + ",'" + request.getParameter("category") + "','" + request.getParameter("title") +"', '" + year+"-05-"+ day+"'," + request.getParameter("price") +",'" + request.getParameter("content") + "','" +request.getParameter("premium") +"');";
+                  
                 
                 response.sendRedirect("index.jsp");
                 stmt.executeQuery(sql);
-                
 
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);

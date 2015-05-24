@@ -213,8 +213,11 @@ form{
 
 #kat1 h4{
     text-align: center;
-    padding-top: 15px;
+    padding-top: 20px;
+    font-size: 1.5em;
 }
+
+
 
 
 .ogloszenie_box{
@@ -239,12 +242,24 @@ form{
 #podkategorie{
     padding-top: 10px;
     padding-bottom: 15px;
-    width: 200px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#podkategorie a{
+#podkategorie ul{
+    margin-left: 0;
+    padding-left: 0;
+}
+#podkategorie ul li{
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    list-style: none;
+    text-align: center;
+    border-bottom: thin dotted grey;
+}
+
+#podkategorie ul li a{
+    text-align: center;
     color: #045AA2;
 }
 

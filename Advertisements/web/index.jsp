@@ -155,9 +155,9 @@
                     <div id="kolumna">
                         <div id="naglowek">
                             <img src="img/ico1.png">
-                            <h4>Nagłówek</h4>
+                            <h4>Darmowe ogłoszenia</h4>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptate dolore facilis reprehenderit tempora non illo consequuntur alias iste. Repellat provident, omnis debitis dignissimos molestiae quia quas autem voluptas placeat.</p>
+                        <p>W naszej Szukajce zawsze możesz bezpłatnie dodać swe ogłoszenie. Jedyne co musisz zrobić, to się zarejstrować</p>
                     </div>
                 </div>
 
@@ -165,9 +165,9 @@
                     <div id="kolumna">
                         <div id="naglowek">
                             <img src="img/ico2.png">
-                            <h4>Nagłówek</h4>
+                            <h4>Moderowane</h4>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptate dolore facilis reprehenderit tempora non illo consequuntur alias iste. Repellat provident, omnis debitis dignissimos molestiae quia quas autem voluptas placeat.</p>
+                        <p>Każde ogłoszenie jest sprawdzane przez moderatorów, dzięki czemu masz pewność, że ogłoszenia są aktualne i prawdziwe.</p>
                     </div>
                 </div>
 
@@ -175,9 +175,9 @@
                     <div id="kolumna">
                         <div id="naglowek">
                             <img src="img/ico3.png">
-                            <h4>Nagłówek</h4>
+                            <h4>Duża społeczność</h4>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptate dolore facilis reprehenderit tempora non illo consequuntur alias iste. Repellat provident, omnis debitis dignissimos molestiae quia quas autem voluptas placeat.</p>
+                        <p>Spore grona użytkowników i odwiedzających nas gości daje pewność, że w naszej Szukajce znajdziesz każdą interesujące Cię rzecz.</p>
                     </div>
                 </div>
 
@@ -240,54 +240,59 @@
 
                         <div class="kategorie">
                             <div id="kat1">
-                                <h4><span class="glyphicon glyphicon-user" aria-hidden="true"> Praca</h4> 
+                                <h4>Praca</h4> 
                             </div>
                             <div id="podkategorie">
                                 <ul>
-                                    <li><a href="#">pierwsze cos</a></li>
-                                    <li><a href="#">jako tako</a></li>
-                                    <li><a href="#">ciężka praca</a></li>
-                                    <li><a href="#">sprzątaczka</a></li>
-                                    <li><a href="#">pani lekkich obyczajów</a></li>
-                                    <li><a href="#">no juz nie co</a></li>
-                                    <li><a href="#">sprzątaczka</a></li>
-                                    <li><a href="#">pani lekkich obyczajów</a></li>
-                                    <li><a href="#">no juz nie co</a></li>
+                                    <li><a href="#">Poszukuję</a></li>
+                                    <li><a href="#">Zatrudnię</a></li>
                                 </ul>
                             </div>          
                         </div>
 
                         <div class="kategorie">
                             <div id="kat1">
-                                <h4><span class="glyphicon glyphicon-home" aria-hidden="true"> Nieruchomości</h4>
+                                <h4>Usługi</h4>
                             </div>
                             <div id="podkategorie">
                                 <ul>
-                                    <li><a href="#">pierwsze cos</a></li>
-                                    <li><a href="#">jako tako</a></li>
-                                    <li><a href="#">ciężka praca</a></li>
-                                    <li><a href="#">sprzątaczka</a></li>
-                                    <li><a href="#">pani lekkich obyczajów</a></li>
-                                    <li><a href="#">no juz nie co</a></li>
+                                    <li><a href="#">Oferuję</a></li>
+                                    <li><a href="#">Poszukuję</a></li>
+                                    <li><a href="#">Finansowe</a></li>
+                                    <li><a href="#">Budowlane</a></li>
                                 </ul>
                             </div>  
                         </div>
 
                         <div class="kategorie">
                             <div id="kat1">
-                                <h4><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> Kupię/Sprzedam</h4>
+                                <h4>Komputery</h4>
                             </div>
                             <div id="podkategorie">
                                 <ul>
-                                    <li><a href="#">pierwsze cos</a></li>
-                                    <li><a href="#">jako tako</a></li>
-                                    <li><a href="#">ciężka praca</a></li>
-                                    <li><a href="#">sprzątaczka</a></li>
-                                    <li><a href="#">pani lekkich obyczajów</a></li>
-                                    <li><a href="#">no juz nie co</a></li>
-                                    <li><a href="#">sprzątaczka</a></li>
-                                    <li><a href="#">pani lekkich obyczajów</a></li>
-                                    <li><a href="#">no juz nie co</a></li>
+                                    <li><a href="#">Kupię</a></li>
+                                    <li><a href="#">Sprzedam</a></li>
+                                    <li><a href="#">Gry, Programy</a></li>
+                                    <li><a href="#">Akcesoria</a></li>
+                                    <li><a href="#">Wymienię</a></li>
+                                    <li><a href="#">Inne</a></li>
+                                </ul>
+                            </div>  
+                        </div>
+                        
+                        <div class="kategorie">
+                            <div id="kat1">
+                                <h4>Motoryzacja</h4>
+                            </div>
+                            <div id="podkategorie">
+                                <ul>
+                                    <li><a href="#">Audi</a></li>
+                                    <li><a href="#">BMW</a></li>
+                                    <li><a href="#">Ford</a></li>
+                                    <li><a href="#">Renault</a></li>
+                                    <li><a href="#">Toyota</a></li>
+                                    <li><a href="#">Motocykle i Quady</a></li>
+                                    <li><a href="#">Części i akcesoria</a></li>
                                 </ul>
                             </div>  
                         </div>

@@ -8,7 +8,6 @@ public class Ads {
 
     
     private String category;
-    private String subcategory;
     private String title;
     private String advert_date;
     private String price;
@@ -17,11 +16,10 @@ public class Ads {
     
     public Ads(){};
     
-    public Ads(String id_advert, String id_user, String category, String subcategory, String title, String advert_date, String price, String content, String premium) {
+    public Ads(String id_advert, String id_user, String category, String title, String advert_date, String price, String content, String premium) {
         this.id_advert = id_advert;
         this.id_user = id_user;
         this.category = category;
-        this.subcategory = subcategory;
         this.title = title;
         this.advert_date = advert_date;
         this.price = price;
@@ -51,14 +49,6 @@ public class Ads {
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    public String getSubcategory() {
-        return subcategory;
-    }
-
-    public void setSubcategory(String subcategory) {
-        this.subcategory = subcategory;
     }
 
     public String getTitle() {
