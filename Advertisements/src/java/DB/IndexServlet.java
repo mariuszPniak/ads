@@ -56,7 +56,7 @@ public class IndexServlet extends HttpServlet {
                 if (result==null || !result.isBeforeFirst()){
                 } else {
                     while(result.next()){
-                        Ads adRecord = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("subcategory"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
+                        Ads adRecord = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
                         ads.add(adRecord);
                     }
                 }
