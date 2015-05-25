@@ -74,7 +74,7 @@ public class AdvertServlet extends HttpServlet {
                         + "values(" + ilosc + "," + id_user + ",'" + request.getParameter("category") + "','" + request.getParameter("title") +"', '" + year+"-05-"+ day+"'," + request.getParameter("price") +",'" + request.getParameter("content") + "','" +request.getParameter("premium") +"');";
                   
                 
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("index.html");
                 stmt.executeQuery(sql);
 
             } catch (SQLException ex) {

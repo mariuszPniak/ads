@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DB;
 
 import java.io.IOException;
@@ -44,6 +40,7 @@ public class IndexServlet extends HttpServlet {
         String email=request.getParameter("email");
         String password=request.getParameter("password");
         List<Ads> ads = new ArrayList<Ads>();
+        List<Ads> adsPremium = new ArrayList<Ads>();
         
         ResultSet result = null;
         ResultSet rsEmail = null;
@@ -51,23 +48,43 @@ public class IndexServlet extends HttpServlet {
         Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
-
+                Statement stmt2 = conn.createStatement();
                 HttpSession session = request.getSession();
-                String sql = "select * from advert order by advert_date limit 10";
+                String sql = "select * from advert where premium='f' order by advert_date desc limit 10";
                 
                 result=stmt.executeQuery(sql);
                 
                 if (result==null || !result.isBeforeFirst()){
                 } else {
                     while(result.next()){
-                        
-                        
+                        String sqlUserEmail = "select email from public.user where id_user="+result.getString("id_user")+";";
+                        rsEmail = stmt2.executeQuery(sqlUserEmail);
+                        rsEmail.next();
+                        rsEmail.getString("email");
                         Ads adRecord = new Ads(result.getString("id_advert"),rsEmail.getString("email"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
                         ads.add(adRecord);
                     }
                 }
+                
+                sql = "select * from advert where premium='t' order by advert_date desc limit 10";
+                result=stmt.executeQuery(sql);
+                
+                if (result==null || !result.isBeforeFirst()){
+                } else {
+                    while(result.next()){
+                        String sqlUserEmail = "select email from public.user where id_user="+result.getString("id_user")+";";
+                        rsEmail = stmt2.executeQuery(sqlUserEmail);
+                        rsEmail.next();
+                        rsEmail.getString("email");
+                        Ads adRecordPremium = new Ads(result.getString("id_advert"),rsEmail.getString("email"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
+                        adsPremium.add(adRecordPremium);
+                    }
+                }
+                
                 request.setAttribute("Ads", ads);
+                request.setAttribute("AdsPremium", adsPremium);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
+                
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
