@@ -57,11 +57,10 @@ public class IndexServlet extends HttpServlet {
                 if (result==null || !result.isBeforeFirst()){
                 } else {
                     while(result.next()){
-                        String sqlUserEmail = "select email from public.user where id_user="+result.getString("id_user")+";";
+                        String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
                         rsEmail = stmt2.executeQuery(sqlUserEmail);
                         rsEmail.next();
-                        rsEmail.getString("email");
-                        Ads adRecord = new Ads(result.getString("id_advert"),rsEmail.getString("email"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
+                        Ads adRecord = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
                         ads.add(adRecord);
                     }
                 }
@@ -72,11 +71,10 @@ public class IndexServlet extends HttpServlet {
                 if (result==null || !result.isBeforeFirst()){
                 } else {
                     while(result.next()){
-                        String sqlUserEmail = "select email from public.user where id_user="+result.getString("id_user")+";";
+                        String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
                         rsEmail = stmt2.executeQuery(sqlUserEmail);
                         rsEmail.next();
-                        rsEmail.getString("email");
-                        Ads adRecordPremium = new Ads(result.getString("id_advert"),rsEmail.getString("email"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
+                        Ads adRecordPremium = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
                         adsPremium.add(adRecordPremium);
                     }
                 }
