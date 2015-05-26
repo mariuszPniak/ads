@@ -213,52 +213,7 @@
         </div>
 
 
-        <div id="pasek_srodek">
-            <div id="srodek_tlo">
-                <div class="container box_container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="input-group szukaj">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
-                                </span>
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
-                        <div class="col-md-2">
-                            <select class="form-control pole_wyboru">
-                                <option>Wszystkio</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <select class="form-control pole_wyboru">
-                                <option>Wszystkio</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <select class="form-control pole_wyboru">
-                                <option>Wszystkio</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-
-
-
-                    </div>
-                </div><!-- /.row -->
-            </div>
-        </div>
+        
 
 
         <div id="content">
@@ -329,6 +284,21 @@
 
 
                     <div class="col-md-9">
+                        
+                        <c:forEach var="a" items="${AdsPremium}">
+                            <div class="ogloszenie_box_premium">
+                                <a href="#"><h4>${a.id_user}</h4></a>
+                                <h4>${a.title}</h4>
+                                <h4 id="data">${a.advert_date}</h4>
+
+                                <div class="clearfix">
+                                </div>
+
+                                <img src="img/advert.png" alt="ogloszenie"/> 
+                                <p>${a.content}<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
+                            </div>
+                        </c:forEach>
+                        
                         <c:forEach var="a" items="${Ads}">
                             <div class="ogloszenie_box">
                                 <a href="#"><h4>${a.id_user}</h4></a>
@@ -337,7 +307,6 @@
 
                                 <div class="clearfix">
                                 </div>
-
                                 <img src="img/advert/${a.photo}" width="85px" height="85px" alt="ogloszenie"/>
                                 <p>${a.content}<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
                             </div>

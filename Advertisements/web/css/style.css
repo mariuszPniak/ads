@@ -220,6 +220,26 @@ form{
 
 
 
+.ogloszenie_box_premium{
+    margin-top: 10px;
+    width: 100%;
+    border: solid 2px #F2F2F0;
+    padding: 30px;
+    min-height: 180px;
+    background-color: #DEE4EF;
+}
+
+.ogloszenie_box_premium img{
+    float: left;
+    padding-right: 10px; 
+    padding-bottom: 10px;
+}
+
+.ogloszenie_box_premium p{
+    display: inline;
+    min-height: 100px;
+}
+
 .ogloszenie_box{
     margin-top: 10px;
     width: 100%;
@@ -261,6 +281,27 @@ form{
 #podkategorie ul li a{
     text-align: center;
     color: #045AA2;
+}
+
+.ogloszenie_box_premium:hover{
+    background: #F2F2F0; 
+}
+
+.ogloszenie_box_premium h4{
+    float:left;
+}
+
+.ogloszenie_box_premium #data{
+    float: right;
+}
+
+.ogloszenie_box_premium a{
+    float: left;
+    padding-right: 20px;
+}
+
+.ogloszenie_box_premium p{
+    clear: both;
 }
 
 .ogloszenie_box:hover{

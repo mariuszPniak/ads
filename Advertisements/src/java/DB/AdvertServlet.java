@@ -97,6 +97,7 @@ public class AdvertServlet extends HttpServlet {
                 
            //     String sql2 = "UPDATE advert SET photo = '"+request.getParameter("photo")+"' WHERE id_advert ="+ilosc+";";
                 response.sendRedirect("dodaj_zdjecie.jsp");
+
                 stmt.executeQuery(sql);
                 
           //      stmt.executeQuery(sql2);

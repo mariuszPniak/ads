@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DB;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,22 +36,28 @@ public class IndexServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
         
-        PrintWriter out = response.getWriter();
+   //     PrintWriter out = response.getWriter();
+        try (PrintWriter out = response.getWriter()) {
+            
         String email=request.getParameter("email");
         String password=request.getParameter("password");
         List<Ads> ads = new ArrayList<Ads>();
+        List<Ads> adsPremium = new ArrayList<Ads>();
         
         ResultSet result = null;
-        ResultSet result2 = null;
+        ResultSet rsEmail = null;
         Statement stmt = null;
       //  int b=0;
         Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
-
+                Statement stmt2 = conn.createStatement();
                 HttpSession session = request.getSession();
-                String sql = "select * from advert;";
+
+                String sql = "select * from advert where premium='f' order by advert_date desc limit 10";
+                
                 result=stmt.executeQuery(sql);
                 
 //                String sql2 = "select * from advert where premium = 't'";
@@ -67,14 +70,35 @@ public class IndexServlet extends HttpServlet {
                 if (result==null || !result.isBeforeFirst()){
                 } else {
                     while(result.next()){
+                        String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
+                        rsEmail = stmt2.executeQuery(sqlUserEmail);
+                        rsEmail.next();
                         Ads adRecord = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
                         ads.add(adRecord);
             //            out.println(result.getString("photo"));
                     }
                 }
                 
+
+                sql = "select * from advert where premium='t' order by advert_date desc limit 10";
+                result=stmt.executeQuery(sql);
+                
+                if (result==null || !result.isBeforeFirst()){
+                } else {
+                    while(result.next()){
+                        String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
+                        rsEmail = stmt2.executeQuery(sqlUserEmail);
+                        rsEmail.next();
+                        Ads adRecordPremium = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
+                        adsPremium.add(adRecordPremium);
+                    }
+                }
+                
+
                 request.setAttribute("Ads", ads);
+                request.setAttribute("AdsPremium", adsPremium);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
+                
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
@@ -94,7 +118,7 @@ public class IndexServlet extends HttpServlet {
             }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    } // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
