@@ -60,12 +60,28 @@
 
                 <c:if test="${sessionScope.LogEmail == null}">
                     <div class="col-md-offset-4 col-md-4">
+                        <form id="formSearch" action="search" method="get">
                         <div class="input-group szukaj">
-                            <input type="text" class="form-control" placeholder="Wyszukaj ogłoszenie...">
+                            <input type="text" class="form-control" name="searchText" placeholder="Wyszukaj ogłoszenie...">
+                            <select class="form-control" name="searchSelect">
+                                <optgroup label="Praca">
+                                    <option value="volvo">Poszukuję</option>
+                                    <option value="saab">Zatrudnię</option>
+                                </optgroup>
+                                <optgroup label="Nieruchomości">
+                                    <option value="mercedes">Sprzedam</option>
+                                    <option value="audi">Wynajmę</option>
+                                </optgroup>
+                                <optgroup label="Kupię">
+                                    <option value="mercedes">Dom</option>
+                                    <option value="audi">Samochód</option>
+                                </optgroup>
+                            </select>
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
                             </span>
                         </div><!-- /input-group -->
+                    </form>
                     </div>
                 </c:if>
 
@@ -76,6 +92,20 @@
                     <div class="col-md-4">
                         <div class="input-group szukaj">
                             <input type="text" class="form-control">
+                            <select class="form-control" name="szukajSelect">
+                                <optgroup label="Praca">
+                                    <option value="volvo">Poszukuję</option>
+                                    <option value="saab">Zatrudnię</option>
+                                </optgroup>
+                                <optgroup label="Nieruchomości">
+                                    <option value="mercedes">Sprzedam</option>
+                                    <option value="audi">Wynajmę</option>
+                                </optgroup>
+                                <optgroup label="Kupię">
+                                    <option value="mercedes">Dom</option>
+                                    <option value="audi">Samochód</option>
+                                </optgroup>
+                            </select>
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
                             </span>
@@ -185,7 +215,7 @@
         </div>
 
 
-        
+
 
 
         <div id="content">
@@ -234,7 +264,7 @@
                                 </ul>
                             </div>  
                         </div>
-                        
+
                         <div class="kategorie">
                             <div id="kat1">
                                 <h4>Motoryzacja</h4>
@@ -256,7 +286,7 @@
 
 
                     <div class="col-md-9">
-                        
+
                         <c:forEach var="a" items="${AdsPremium}">
                             <div class="ogloszenie_box_premium">
                                 <a href="#"><h4>${a.id_user}</h4></a>
@@ -270,7 +300,7 @@
                                 <p>${a.content}<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
                             </div>
                         </c:forEach>
-                        
+
                         <c:forEach var="a" items="${Ads}">
                             <div class="ogloszenie_box">
                                 <a href="#"><h4>${a.id_user}</h4></a>
