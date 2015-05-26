@@ -28,7 +28,6 @@
         <servlet-name>searchServlet</servlet-name>
         <servlet-class>DB.searchServlet</servlet-class>
     </servlet>
-	
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>

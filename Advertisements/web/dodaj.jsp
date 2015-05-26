@@ -65,66 +65,7 @@
   <div class="container">
     <div class="row">
         <div class="col-md-3">
-
-            <div class="kategorie">
-                <div id="kat1">
-                    <h4>Praca</h4> 
-                </div>
-                <div id="podkategorie">
-                    <ul>
-                        <li><a href="#">Poszukuję</a></li>
-                        <li><a href="#">Zatrudnię</a></li>
-                    </ul>
-                </div>          
-            </div>
-
-            <div class="kategorie">
-                <div id="kat1">
-                    <h4>Usługi</h4>
-                </div>
-                <div id="podkategorie">
-                    <ul>
-                        <li><a href="#">Oferuję</a></li>
-                        <li><a href="#">Poszukuję</a></li>
-                        <li><a href="#">Finansowe</a></li>
-                        <li><a href="#">Budowlane</a></li>
-                    </ul>
-                </div>  
-            </div>
-
-            <div class="kategorie">
-                <div id="kat1">
-                    <h4>Komputery</h4>
-                </div>
-                <div id="podkategorie">
-                    <ul>
-                        <li><a href="#">Kupię</a></li>
-                        <li><a href="#">Sprzedam</a></li>
-                        <li><a href="#">Gry, Programy</a></li>
-                        <li><a href="#">Akcesoria</a></li>
-                        <li><a href="#">Wymienię</a></li>
-                        <li><a href="#">Inne</a></li>
-                    </ul>
-                </div>  
-            </div>
-
-            <div class="kategorie">
-                <div id="kat1">
-                    <h4>Motoryzacja</h4>
-                </div>
-                <div id="podkategorie">
-                    <ul>
-                        <li><a href="#">Audi</a></li>
-                        <li><a href="#">BMW</a></li>
-                        <li><a href="#">Ford</a></li>
-                        <li><a href="#">Renault</a></li>
-                        <li><a href="#">Toyota</a></li>
-                        <li><a href="#">Motocykle i Quady</a></li>
-                        <li><a href="#">Części i akcesoria</a></li>
-                    </ul>
-                </div>  
-            </div>
-
+            <jsp:include page="category.jsp" />
         </div>    <!-- end col-md-3  kategorie -->
 
       
@@ -136,16 +77,31 @@
           <label for="select">Wybierz kategorię</label>
           <select class="form-control" name="category" id="select">
             <optgroup label="Praca">
-              <option value="volvo">Poszukuję</option>
-              <option value="saab">Zatrudnię</option>
+              <option value="poszukuję_pracy">Poszukuję</option>
+              <option value="zatrudnię">Zatrudnię</option>
             </optgroup>
-            <optgroup label="Nieruchomości">
-              <option value="mercedes">Sprzedam</option>
-              <option value="audi">Wynajmę</option>
+            <optgroup label="Usługi">
+              <option value="oferuję">Oferuję</option>
+              <option value="poszukuję_usług">Poszukuję</option>
+              <option value="finansowe">Finansowe</option>
+              <option value="budowlane">Budowlane</option>
             </optgroup>
-            <optgroup label="Kupię">
-              <option value="mercedes">Dom</option>
-              <option value="audi">Samochód</option>
+            <optgroup label="Komputery">
+              <option value="kupię">Kupię</option>
+              <option value="sprzedam">Sprzedam</option>
+              <option value="gry">Gry, Programy</option>
+              <option value="akcesoria">Akcesoria</option>
+              <option value="wymienię">Wymienię</option>
+              <option value="inne">Inne</option>
+            </optgroup>
+            <optgroup label="Motoryzacja">
+              <option value="audi">Audi</option>
+              <option value="bmw">BMW</option>
+              <option value="ford">Ford</option>
+              <option value="renault">Renault</option>
+              <option value="toyota">Toyota</option>
+              <option value="motocykle">Motocykle i Quadt</option>
+              <option value="części">Części i akcesoria</option>
             </optgroup>
           </select>        
 
@@ -167,10 +123,6 @@
 
         </form>    
 
-<!--<form method="post" action="advert">
-    <input type="text" name="bb">
-    <button type="submit">Przeslij</button>
-</form>-->
       </div>
 
      </div>   <!-- end row -->
@@ -185,82 +137,7 @@
 <div id="strzalka"><a href="#"><img src="img/strzalka.png" ></a></div>
 
 <div id="footer">
-  <div id="footer_czarny">
-    <div class="content_f">
-      <div class="row">
-        
-        <div class="col-md-4 foot">
-          <div id="srodek_f">
-           <h2>Co moÅ¼emy powiedzieÄ o nas..</h2>
-           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt at odio, assumenda voluptas aperiam commodi aliquam laudantium nam placeat veritatis? </p>
-           <ul>
-              <li><a href="#">pierwsze cos</a></li>
-              <li><a href="#">jako tako</a></li>
-              <li><a href="#">ciÄÅ¼ka praca</a></li>
-              <li><a href="#">sprzÄtaczka</a></li>
-              <li><a href="#">pani lekkich obyczajÃ³w</a></li>
-              <li><a href="#">no juz nie co</a></li>
-              <li><a href="#">sprzÄtaczka</a></li>
-              <li><a href="#">pani lekkich obyczajÃ³w</a></li>
-              <li><a href="#">no juz nie co</a></li>
-            </ul>
-
-            <h2>Dlaczego?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, repudiandae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt at odio, assumenda voluptas aperiam commodi aliquam laudantium nam placeat veritatis? </p>
-           
-          </div>
-        </div>
-
-        <div class="col-md-4 foot">
-           <div id="srodek_f">
-           <h2>Informacje kontaktowe..</h2>
-           <p class="pKontakt"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 600-121-888</p>
-           <p class="pKontakt"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 14-88-92-182</p>
-           <p class="pKontakt"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> kontakt@ogloszenia.pl</p>
-           <p class="pKontakt"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> pomoc_techniczna@ogloszenia.pl</p>
-           <p class="pKontakt"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> pawel@ogloszenia.pl</p>
-           
-
-           <form role="form">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Podaj twÃ³j e-mail</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="e-mail">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Zadaj szybkie pytanie</label>
-              <textarea class="form-control" rows="3" placeholder="wpisz swoje pytanie.."></textarea>
-            </div>
-            <button type="submit" class="btn btn-default pytanie pull-right">WyÅlij</button>
-          </form>
-           
-         </div>
-        </div>
-
-        <div class="col-md-4 foot">
-          <div id="srodek_f">
-           <h2>Humor na dzisiaj ;)</h2>
-           <div class="embed-responsive embed-responsive-16by9">
-             <iframe class="embed-responsive-item" src="//www.youtube.com/embed/HQ9W7fGVU9Q"></iframe>
-           </div>
-            <h2>Dowcip dnia..</h2>
-           <p class="kawal">Idzie gÃ³wno z dupÄ ciemnym korytarzem, nagle gÃ³wno mÃ³wi:</p>
-           <p class="kawal">-Tyyy ciemno tu jak w dupe</p>
-           <p class="kawal">dupa sie wkurwiÅa i mÃ³wi:</p>
-           <p class="kawal">-Ja teÅ¼ gÃ³wno widze!</p>
-           <p class="kawal">hahahahahahahahahahahahah ;)</p>
-
-
-
-
-         </div>
-        </div>
-      
-      </div>
-    </div>
-
-
-  </div>
-  
+    <jsp:include page="footer.jsp" />
 </div>
 
 
