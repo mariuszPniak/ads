@@ -21,6 +21,10 @@
         <servlet-class>DB.IndexServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>PhotoServlet</servlet-name>
+        <servlet-class>DB.PhotoServlet</servlet-class>
+	</servlet>
+	<servlet>
         <servlet-name>searchServlet</servlet-name>
         <servlet-class>DB.searchServlet</servlet-class>
     </servlet>
@@ -45,6 +49,10 @@
         <url-pattern>/index.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>PhotoServlet</servlet-name>
+        <url-pattern>/photo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
         <servlet-name>searchServlet</servlet-name>
         <url-pattern>/search</url-pattern>
     </servlet-mapping>

@@ -132,45 +132,21 @@
 
         <h3 class="text-center">Dodaj ogłoszenie</h3>
         
-        <form method="post" action="advert">
-          <label for="select">Wybierz kategorię</label>
-          <select class="form-control" name="category" id="select">
-            <optgroup label="Praca">
-              <option value="volvo">Poszukuję</option>
-              <option value="saab">Zatrudnię</option>
-            </optgroup>
-            <optgroup label="Nieruchomości">
-              <option value="mercedes">Sprzedam</option>
-              <option value="audi">Wynajmę</option>
-            </optgroup>
-            <optgroup label="Kupię">
-              <option value="mercedes">Dom</option>
-              <option value="audi">Samochód</option>
-            </optgroup>
-          </select>        
-
-          <label for="tytul">Tytuł ogłoszenia</label>
-            <input type="text" name="title" class="form-control" id="tytul" requiered>
-          <label for="cena">Cena(opcjonalnie)</label>
-            <input type="text" name="price" class="form-control">
-          <label for="tresc">Treść ogłoszenia</label>
-            <textarea class="form-control" name="content" rows="6"></textarea>
-          
-          <label for="typ" style="margin-top: 25px;">Typ ogłoszenia</label>
-            <div id="typ">
-              <label><input type="radio" name="premium" value="t"> Premium</label>
-              <label><input type="radio" name="premium" value="f"> Zwykłe</label>
+        <form action="photo" method="POST" enctype="multipart/form-data">
+            <label for="zdjecie">Dodaj zdjęcie</label>
+            <input type="file" id="zdjecie" name="photo" class="form-control">
+            <div class="regulamin">
+                <h4 class="text-center">Regulamin serwisu</h4>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
             </div>
+            <label><input type="checkbox" name="regulamin" required> Akceptuję warunki regulaminu</label>
+            <button type="submit" style="margin-top: 20px;" class="btn btn-primary button-login pull-right">Dodaj ogłoszenie</button>                                           
+        </form>
+        
+        
 
-          <button type="button" class="btn btn-default pull-left" style="margin-top: 50px;"><a href="index.jsp/">Powrót</a></button>
-          <button type="submit" class="btn btn-default pull-right" style="margin-top: 50px;">Dalej</button>
 
-        </form>    
-
-<!--<form method="post" action="advert">
-    <input type="text" name="bb">
-    <button type="submit">Przeslij</button>
-</form>-->
       </div>
 
      </div>   <!-- end row -->

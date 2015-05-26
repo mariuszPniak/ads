@@ -155,9 +155,6 @@
             <input type="text" name="price" class="form-control">
           <label for="tresc">Treść ogłoszenia</label>
             <textarea class="form-control" name="content" rows="6"></textarea>
-
-          <label for="zdjecie">Dodaj zdjęcie(opcjonalnie)</label>
-            <input type="file" id="zdjecie" class="form-control">
           
           <label for="typ" style="margin-top: 25px;">Typ ogłoszenia</label>
             <div id="typ">
@@ -166,9 +163,9 @@
             </div>
 
           <button type="button" class="btn btn-default pull-left" style="margin-top: 50px;"><a href="index.jsp/">Powrót</a></button>
-          <button type="submit" class="btn btn-default pull-right" style="margin-top: 50px;">Dodaj ogłoszenie</button>
+          <button type="submit" class="btn btn-default pull-right" style="margin-top: 50px;">Dalej</button>
 
-        </form>
+        </form>    
 
 <!--<form method="post" action="advert">
     <input type="text" name="bb">

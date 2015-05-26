@@ -40,11 +40,13 @@ public class RegisterServlet extends HttpServlet {
             Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
-
+                
+                
                 String sql = "INSERT INTO public.user (email,login,password) "
                         + "values('" + request.getParameter("email") + "','" + request.getParameter("login") + "','" + request.getParameter("password") + "');";
 
                // out.println(sql);
+                
                 
                 response.sendRedirect("registry.html");
                 
