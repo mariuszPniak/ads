@@ -46,10 +46,38 @@
         <c:if test="${sessionScope.LogEmail == null}">
             <div class="zalogowany">
                 <div class="container">
-                    <p class="text-center">Zaloguj się, aby móc dodać ogłoszenie.</p>
+                    <div class="col-xs-6">
+                        <p class="text-center"><button type="button" class="btn btn-sm btn-warning" style="margin-top: -3px;" data-toggle="modal" data-target="#okienkoLogowania">Zaloguj się</button></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <p class="text-center"><button type="button" class="btn btn-sm btn-warning" style="margin-top: -3px;" data-toggle="modal" data-target="#okienkoRejestracji">Rejestracja</button></p>
+                    </div>
                 </div>
             </div>
         </c:if>
+        
+        
+        <!-- okienko modal do logowania -->   
+        <div class="modal fade" id="okienkoLogowania" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                        <h3 class="modal-title text-center" id="myModalLabel">Logowanie</h3>
+                    </div>
+                    <form action="login" method="POST" role="form">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Podaj swój adres e-mail">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Wprowadź hasło">
+                        </div>
+                        <button type="submit" class="btn btn-primary button-login">Zaloguj</button>                                           
+                    </form>
+                </div>
+            </div>
+        </div>
+        
 
 
         <div class="container gora_strony">
@@ -103,7 +131,7 @@
                                 <div class="pudlo2">
                                     <form action="login" method="POST" role="form">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Adres E-mail</label>
+                                            <label for="exampleInputEmail1">Adres e-mail</label>
                                             <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail">
                                         </div>
                                         <div class="form-group">
@@ -177,7 +205,7 @@
                             <img src="img/ico3.png">
                             <h4>Duża społeczność</h4>
                         </div>
-                        <p>Spore grona użytkowników i odwiedzających nas gości daje pewność, że w naszej Szukajce znajdziesz każdą interesujące Cię rzecz.</p>
+                        <p>Spore grona użytkowników i odwiedzających nas gości daje pewność, że w naszej Szukajce znajdziesz każdą interesującą Cię rzecz.</p>
                     </div>
                 </div>
 
@@ -310,7 +338,7 @@
                                 <div class="clearfix">
                                 </div>
 
-                                <img src="img/advert.png" alt="ogloszenie"/>
+                                <img src="img/advert/${a.photo}" width="85px" height="85px" alt="ogloszenie"/>
                                 <p>${a.content}<a id="zobacz_wiecej" href="#">Zobacz więcej...</a></p> 
                             </div>
                         </c:forEach>

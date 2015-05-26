@@ -16,7 +16,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
- 
+
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+
 
 
 
@@ -27,8 +40,7 @@ import java.util.GregorianCalendar;
 
 
 public class AdvertServlet extends HttpServlet {
-
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -47,6 +59,12 @@ public class AdvertServlet extends HttpServlet {
             int year = date.get(Calendar.YEAR);
             int month = date.get(Calendar.MONTH);
             int day = date.get(Calendar.DAY_OF_MONTH);
+            
+            
+            
+            
+      
+            
             
             
             Statement stmt = null;
@@ -70,12 +88,20 @@ public class AdvertServlet extends HttpServlet {
                 ilosc = ilosc + 1;
                 
                 
-                String sql = "INSERT INTO public.advert (id_advert,id_user,category,title,advert_date,price,content,premium) "
-                        + "values(" + ilosc + "," + id_user + ",'" + request.getParameter("category") + "','" + request.getParameter("title") +"', '" + year+"-05-"+ day+"'," + request.getParameter("price") +",'" + request.getParameter("content") + "','" +request.getParameter("premium") +"');";
+                String sql = "INSERT INTO public.advert (id_advert,id_user,category,title,advert_date,price,content,premium,photo) "
+                        + "values(" + ilosc + "," + id_user + ",'" + request.getParameter("category") + "','" + request.getParameter("title") +"', '" + year+"-05-"+ day+"'," + request.getParameter("price") +",'" + request.getParameter("content") + "','" +request.getParameter("premium") +"','');";
                   
+            //    out.println(request.getParameter("photo"));
+            //    out.println(request.getParameter("premium") + request.getParameter("photo")+ request.getParameter("category"));
+            //    stmt.executeQuery(sql);
                 
-                response.sendRedirect("index.jsp");
+           //     String sql2 = "UPDATE advert SET photo = '"+request.getParameter("photo")+"' WHERE id_advert ="+ilosc+";";
+                response.sendRedirect("dodaj_zdjecie.jsp");
                 stmt.executeQuery(sql);
+                
+          //      stmt.executeQuery(sql2);
+                
+                
 
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -94,8 +120,7 @@ public class AdvertServlet extends HttpServlet {
             }
         }
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+      // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

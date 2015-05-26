@@ -5,18 +5,17 @@ package DB;
 public class Ads {
     private String id_advert;
     private String id_user;
-
-    
     private String category;
     private String title;
     private String advert_date;
     private String price;
     private String content;
     private String premium;
+    private String photo;
     
     public Ads(){};
     
-    public Ads(String id_advert, String id_user, String category, String title, String advert_date, String price, String content, String premium) {
+    public Ads(String id_advert, String id_user, String category, String title, String advert_date, String price, String content, String premium, String photo) {
         this.id_advert = id_advert;
         this.id_user = id_user;
         this.category = category;
@@ -25,6 +24,7 @@ public class Ads {
         this.price = price;
         this.content = content;
         this.premium = premium;
+        this.photo = photo;
     }
     
     public String getId_advert() {
@@ -89,6 +89,14 @@ public class Ads {
 
     public void setPremium(String premium) {
         this.premium = premium;
+    }
+    
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
     
     

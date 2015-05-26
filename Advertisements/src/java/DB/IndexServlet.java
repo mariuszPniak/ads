@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
 /**
  *
@@ -39,27 +40,39 @@ public class IndexServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        PrintWriter out = response.getWriter();
         String email=request.getParameter("email");
         String password=request.getParameter("password");
         List<Ads> ads = new ArrayList<Ads>();
         
         ResultSet result = null;
+        ResultSet result2 = null;
         Statement stmt = null;
+      //  int b=0;
         Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
 
                 HttpSession session = request.getSession();
-                String sql = "select * from advert order by advert_date limit 10";
+                String sql = "select * from advert;";
                 result=stmt.executeQuery(sql);
                 
+//                String sql2 = "select * from advert where premium = 't'";
+//                while (result2.next()) {
+//                    b = result2.getInt("premium");
+//                }
+//                result2.close();
+//                
+//                System.out.println(b + ",------------------------------ ");
                 if (result==null || !result.isBeforeFirst()){
                 } else {
                     while(result.next()){
-                        Ads adRecord = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
+                        Ads adRecord = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
                         ads.add(adRecord);
+            //            out.println(result.getString("photo"));
                     }
                 }
+                
                 request.setAttribute("Ads", ads);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } catch (SQLException ex) {
