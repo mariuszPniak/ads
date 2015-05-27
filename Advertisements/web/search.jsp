@@ -14,9 +14,6 @@
 
         <%@include file="sectionsHTML/header.jsp" %>
 
-        <%@include file="sectionsHTML/slider.jsp" %>
-        
-        <%@include file="sectionsHTML/threeColumns.jsp" %>
 
 
         <div id="content">

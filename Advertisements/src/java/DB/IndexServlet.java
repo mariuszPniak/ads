@@ -73,7 +73,7 @@ public class IndexServlet extends HttpServlet {
                         String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
                         rsEmail = stmt2.executeQuery(sqlUserEmail);
                         rsEmail.next();
-                        Ads adRecord = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
+                        Ads adRecord = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
                         ads.add(adRecord);
             //            out.println(result.getString("photo"));
                     }

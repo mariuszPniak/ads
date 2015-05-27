@@ -28,7 +28,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  * @author szymon
  */
 public class PhotoServlet extends HttpServlet {
-private final String UPLOAD_DIRECTORY = "G:/Netbeans/zzz/ads/Advertisements/web/img/advert";
+private final String UPLOAD_DIRECTORY = "../../../web/img/advert";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

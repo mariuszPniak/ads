@@ -40,10 +40,91 @@ public class searchServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            
-         String text=request.getParameter("searchText");
-        String select=request.getParameter("searchSelect");
+         
+        String text = "";
+        String select = "";
+        String path = request.getServletPath().toString();
+        
+        switch(path){
+            case "/poszukuje_pracy":
+                 select = "poszukuje_pracy";
+            break;
+                
+            case "/zatrudnie":
+                 select = "zatrudnie";
+            break;
+                
+            case "/oferuje":
+                 select = "oferuje";
+            break;
+                
+            case "/poszukuje_uslug":
+                 select = "poszukuje_uslug";
+            break;
+                
+            case "/finansowe":
+                 select = "finansowe";
+            break;
+                
+            case "/budowlane":
+                 select = "budowlane";
+            break;
+                
+            case "/kupie":
+                 select = "kupie";
+            break;
+                
+            case "/sprzedam":
+                 select = "sprzedam";
+            break;
+                
+            case "/gry":
+                 select = "gry";
+            break;
+                
+            case "/wymienie":
+                 select = "wymienie";
+            break;
+                
+            case "/inne":
+                 select = "inne";
+            break;
+                
+            case "/audi":
+                 select = "audi";
+            break;
+                
+            case "/bmw":
+                 select = "bmw";
+            break;
+                
+            case "/ford":
+                 select = "ford";
+            break;
+                
+            case "/renault":
+                 select = "renault";
+            break;
+                
+            case "/toyota":
+                 select = "toyota";
+            break;
+                
+            case "/motocykle":
+                 select = "motocykle";
+            break;
+                
+            case "/czesci":
+                 select = "czesci";
+            break;
+                
+            default:
+               text=request.getParameter("searchText");
+               select=request.getParameter("searchSelect"); 
+        }
+        
+      
+        
         List<Ads> ads = new ArrayList<Ads>();
         List<Ads> adsPremium = new ArrayList<Ads>();
         
@@ -55,8 +136,8 @@ public class searchServlet extends HttpServlet {
                 stmt = conn.createStatement();
                 Statement stmt2 = conn.createStatement();
                 HttpSession session = request.getSession();
-                String sql = "select * from advert where premium='f' and content ilike '%"+text+"%' and category='"+select+"' order by advert_date desc";
-                
+                String sql = "select * from advert where premium='f' and title ilike '%"+text+"%' and category='"+select+"' order by advert_date desc";
+                out.print(sql);
                 result=stmt.executeQuery(sql);
                 
                 if (result==null || !result.isBeforeFirst()){
@@ -65,12 +146,12 @@ public class searchServlet extends HttpServlet {
                         String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
                         rsEmail = stmt2.executeQuery(sqlUserEmail);
                         rsEmail.next();
-                        Ads adRecord = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
+                        Ads adRecord = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
                         ads.add(adRecord);
                     }
                 }
                 
-                sql = "select * from advert where premium='t' and content ilike '%"+text+"%' and category='"+select+"' order by advert_date desc";
+                sql = "select * from advert where premium='t' and title ilike '%"+text+"%' and category='"+select+"' order by advert_date desc";
                 result=stmt.executeQuery(sql);
                 
                 if (result==null || !result.isBeforeFirst()){
@@ -79,7 +160,7 @@ public class searchServlet extends HttpServlet {
                         String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
                         rsEmail = stmt2.executeQuery(sqlUserEmail);
                         rsEmail.next();
-                        Ads adRecordPremium = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"));
+                        Ads adRecordPremium = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
                         adsPremium.add(adRecordPremium);
                     }
                 }
@@ -90,7 +171,7 @@ public class searchServlet extends HttpServlet {
                     request.setAttribute("AdsPremium", adsPremium);
                 }
                 
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+               request.getRequestDispatcher("search.jsp").forward(request, response);
                 
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
