@@ -77,21 +77,21 @@
           <label for="select">Wybierz kategorię</label>
           <select class="form-control" name="category" id="select">
             <optgroup label="Praca">
-              <option value="poszukuję_pracy">Poszukuję</option>
-              <option value="zatrudnię">Zatrudnię</option>
+              <option value="poszukuje_pracy">Poszukuję</option>
+              <option value="zatrudnie">Zatrudnię</option>
             </optgroup>
             <optgroup label="Usługi">
-              <option value="oferuję">Oferuję</option>
-              <option value="poszukuję_usług">Poszukuję</option>
+              <option value="oferuje">Oferuję</option>
+              <option value="poszukuje_uslug">Poszukuję</option>
               <option value="finansowe">Finansowe</option>
               <option value="budowlane">Budowlane</option>
             </optgroup>
             <optgroup label="Komputery">
-              <option value="kupię">Kupię</option>
+              <option value="kupie">Kupię</option>
               <option value="sprzedam">Sprzedam</option>
               <option value="gry">Gry, Programy</option>
               <option value="akcesoria">Akcesoria</option>
-              <option value="wymienię">Wymienię</option>
+              <option value="wymienie">Wymienię</option>
               <option value="inne">Inne</option>
             </optgroup>
             <optgroup label="Motoryzacja">
@@ -101,7 +101,7 @@
               <option value="renault">Renault</option>
               <option value="toyota">Toyota</option>
               <option value="motocykle">Motocykle i Quadt</option>
-              <option value="części">Części i akcesoria</option>
+              <option value="czesci">Części i akcesoria</option>
             </optgroup>
           </select>        
 
