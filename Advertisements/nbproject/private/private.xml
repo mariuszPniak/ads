@@ -3,12 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/repozytorium/Advertisements/web/WEB-INF/web.xml</file>
+            <file>file:/D:/repozytorium/Advertisements/web/sectionsHTML/head.jsp</file>
+            <file>file:/D:/repozytorium/Advertisements/src/java/DB/AdvertServlet.java</file>
             <file>file:/D:/repozytorium/Advertisements/src/java/DB/IndexServlet.java</file>
+            <file>file:/D:/repozytorium/Advertisements/web/sectionsHTML/content.jsp</file>
+            <file>file:/D:/repozytorium/Advertisements/web/sectionsHTML/scripts.jsp</file>
             <file>file:/D:/repozytorium/Advertisements/src/java/DB/Ads.java</file>
+            <file>file:/D:/repozytorium/Advertisements/web/sectionsHTML/slider.jsp</file>
+            <file>file:/D:/repozytorium/Advertisements/web/sectionsHTML/threeColumns.jsp</file>
             <file>file:/D:/repozytorium/Advertisements/web/search.jsp</file>
-            <file>file:/D:/repozytorium/Advertisements/web/index.jsp</file>
             <file>file:/D:/repozytorium/Advertisements/src/java/DB/searchServlet.java</file>
+            <file>file:/D:/repozytorium/Advertisements/web/index.html</file>
+            <file>file:/D:/repozytorium/Advertisements/web/WEB-INF/web.xml</file>
+            <file>file:/D:/repozytorium/Advertisements/web/dodaj.jsp</file>
+            <file>file:/D:/repozytorium/Advertisements/src/java/DB/PhotoServlet.java</file>
+            <file>file:/D:/repozytorium/Advertisements/web/sectionsHTML/header.jsp</file>
+            <file>file:/D:/repozytorium/Advertisements/web/dodaj.html</file>
+            <file>file:/D:/repozytorium/Advertisements/web/sectionsHTML/categories.jsp</file>
+            <file>file:/D:/repozytorium/Advertisements/web/dodaj_zdjecie.jsp</file>
+            <file>file:/D:/repozytorium/Advertisements/web/index.jsp</file>
+            <file>file:/D:/repozytorium/Advertisements/web/sectionsHTML/footer.jsp</file>
         </group>
     </open-files>
 </project-private>

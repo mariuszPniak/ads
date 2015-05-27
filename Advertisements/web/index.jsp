@@ -24,12 +24,12 @@
                 <div class="row">
                     <div class="col-md-3">
 
-                      <%@include file="sectionsHTML/categories.jsp" %>  
+                       <%@include file="sectionsHTML/categories.jsp" %>  
 
                     </div>
                     <div class="col-md-9">
 
-                        <%@include file="sectionsHTML/content.jsp" %> 
+                       <%@include file="sectionsHTML/content.jsp" %> 
                         
                     </div>
                 </div>
