@@ -336,7 +336,7 @@ form{
     color: #428bca;
     font-size: 18px;
     padding-top: 4px;
-    
+    text-align: left;
 }
 
 .ogloszenie_usera{
@@ -377,6 +377,34 @@ form{
 }
 
 .ogloszenie_box #user_input:hover{
+    color: #045AA2;
+}
+
+.ogloszenie_box_premium #zobacz_wiecej{
+    float: right;
+    border:none;
+    background: none;
+    color: #428bca;
+    font-size: 14px;
+    padding-top: 4px;
+}
+
+.ogloszenie_box_premium #user_input{
+    float: left;
+    width: 130px!important;
+    border:none;
+    background: none;
+    color: #428bca;
+    font-size: 18px;
+    padding-top: 4px;
+    text-align: left;
+}
+
+.ogloszenie_box_premium #zobacz_wiecej:hover{
+    color: #045AA2;
+}
+
+.ogloszenie_box_premium #user_input:hover{
     color: #045AA2;
 }
 
