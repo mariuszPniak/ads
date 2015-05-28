@@ -322,10 +322,64 @@ form{
     float: right;
 }
 
-.ogloszenie_box a{
-    float: left;
-    padding-right: 20px;
+#Ogloszenia_form{
+    float:left;
+    margin: 0;
+    padding:0;
 }
+
+.ogloszenie_box #user_input{
+    float: left;
+    width: 130px!important;
+    border:none;
+    background: none;
+    color: #428bca;
+    font-size: 18px;
+    padding-top: 4px;
+    
+}
+
+.ogloszenie_usera{
+    background-color: #2E3F58;
+}
+
+.ogloszenie_usera form{
+    padding: 0;
+    margin: 0;
+}
+
+#input_ogloszenie_usera{
+    text-align: center;
+    border:none;
+    background-color: #2E3F58; 
+    color: white;
+    font-size: 18px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+
+#input_ogloszenie_usera:hover{
+   
+    color: #dddddd;
+}
+
+.ogloszenie_box #zobacz_wiecej{
+    float: right;
+    border:none;
+    background: none;
+    color: #428bca;
+    font-size: 14px;
+    padding-top: 4px;
+}
+
+.ogloszenie_box #zobacz_wiecej:hover{
+    color: #045AA2;
+}
+
+.ogloszenie_box #user_input:hover{
+    color: #045AA2;
+}
+
 
 .ogloszenie_box p{
     clear: both;
@@ -510,19 +564,25 @@ form{
 
 /* Wygląd wyświetlania ogłoszenia */
 
-.ogloszenie_left h4{
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 15px;
+.ogloszenie_left h3{
+    margin-bottom: 20px;
 }
 
 .ogloszenie_left p{
     margin-bottom: 20px;
 }
 
+.ogloszenie_left{
+    margin-top: 20px;
+}
+
+.ogloszenie_right h3 {
+    margin-bottom: 20px;
+}
+
 
 .ogloszenie_right{
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .ogloszenie_right p{
@@ -533,6 +593,13 @@ form{
     font-size: 22px;
     margin-bottom: 15px;
     margin-right: 15px;
+}
+
+.ogloszenie_right button{
+    background: #2E3F58;
+    border: none;
+    width: 90%;
+    margin-top: 10px;
 }
 
 
@@ -570,9 +637,9 @@ form{
 
 .ogloszenie_usera h5{
     text-align: center;
-    background-color: #2E3F58; 
     margin: 0;
-    font-size: 19px;
+    font-size: 19px; 
+    background-color: #2E3F58; 
     color: white;
     padding: 6px 0px;
 }

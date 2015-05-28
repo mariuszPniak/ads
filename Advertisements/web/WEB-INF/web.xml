@@ -28,6 +28,14 @@
         <servlet-name>searchServlet</servlet-name>
         <servlet-class>DB.searchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adServlet</servlet-name>
+        <servlet-class>DB.adServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>userServlet</servlet-name>
+        <servlet-class>DB.userServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -74,6 +82,14 @@
         <url-pattern>/toyota</url-pattern>
         <url-pattern>/motocykle</url-pattern>
         <url-pattern>/czesci</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adServlet</servlet-name>
+        <url-pattern>/ogloszenie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>userServlet</servlet-name>
+        <url-pattern>/user</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
