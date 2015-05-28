@@ -26,7 +26,8 @@ body{
 }
 
 .gora_strony img{
-    margin-top: 20px;
+    margin-top: 33px;
+    margin-left: 15px;
 }
 
 #line{
@@ -45,7 +46,7 @@ body{
 .przycisk-dodaj button{
     background-color: #47576E!important;
     width: 100%;
-    margin-top: 34px;
+    margin-top: 48px;
     font-size: 18px;
 }
 
@@ -151,12 +152,12 @@ form{
 }
 
 .szukaj{
-    margin-top: 35px;
+    margin-top: 10px;
     margin-bottom: 35px;
 }
 
 .szukaj input{
-    height: 40px;
+    height: 30px;
     border-radius: 0;
     font-size: 18px;
     border: none;
@@ -167,9 +168,9 @@ form{
 }
 
 .szukaj button{
-    height: 40px;
+    height: 30px;
     border-radius: 0;
-    font-size: 18px;
+    font-size: 14px;
     background: #2E3F58;
     border: none;
     color:white;

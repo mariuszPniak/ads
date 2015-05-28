@@ -23,10 +23,18 @@
     <servlet>
         <servlet-name>PhotoServlet</servlet-name>
         <servlet-class>DB.PhotoServlet</servlet-class>
-	</servlet>
-	<servlet>
+    </servlet>
+    <servlet>
         <servlet-name>searchServlet</servlet-name>
         <servlet-class>DB.searchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>DB.UserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangeAccountServlet</servlet-name>
+        <servlet-class>DB.ChangeAccountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
@@ -51,10 +59,37 @@
     <servlet-mapping>
         <servlet-name>PhotoServlet</servlet-name>
         <url-pattern>/photo</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>ChangeAccountServlet</servlet-name>
+        <url-pattern>/change-account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>searchServlet</servlet-name>
         <url-pattern>/search</url-pattern>
+        <url-pattern>/zatrudnie</url-pattern>
+        <url-pattern>/poszukuje_pracy</url-pattern>
+        <url-pattern>/oferuje</url-pattern>
+        <url-pattern>/poszukuje_uslug</url-pattern>
+        <url-pattern>/finansowe</url-pattern>
+        <url-pattern>/budowlane</url-pattern>
+        <url-pattern>/kupie</url-pattern>
+        <url-pattern>/sprzedam</url-pattern>
+        <url-pattern>/gry</url-pattern>
+        <url-pattern>/akcesoria</url-pattern>
+        <url-pattern>/wymienie</url-pattern>
+        <url-pattern>/inne</url-pattern>
+        <url-pattern>/audi</url-pattern>
+        <url-pattern>/bmw</url-pattern>
+        <url-pattern>/ford</url-pattern>
+        <url-pattern>/renault</url-pattern>
+        <url-pattern>/toyota</url-pattern>
+        <url-pattern>/motocykle</url-pattern>
+        <url-pattern>/czesci</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -56,25 +56,19 @@ public class IndexServlet extends HttpServlet {
                 Statement stmt2 = conn.createStatement();
                 HttpSession session = request.getSession();
 
-                String sql = "select * from advert where premium='f' order by advert_date desc limit 10";
-                
+                String sql = "select * from advert where premium='f' order by advert_date desc limit 10";                
                 result=stmt.executeQuery(sql);
-                
-//                String sql2 = "select * from advert where premium = 't'";
-//                while (result2.next()) {
-//                    b = result2.getInt("premium");
-//                }
-//                result2.close();
-//                
-//                System.out.println(b + ",------------------------------ ");
+               
                 if (result==null || !result.isBeforeFirst()){
                 } else {
                     while(result.next()){
                         String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
                         rsEmail = stmt2.executeQuery(sqlUserEmail);
                         rsEmail.next();
-                        Ads adRecord = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
+                        Ads adRecord = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
                         ads.add(adRecord);
+                        System.out.println("poszlo");
+                        System.out.println(ads);
             //            out.println(result.getString("photo"));
                     }
                 }

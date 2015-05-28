@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DB;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -16,12 +12,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Mariusz
- */
-public class RegisterServlet extends HttpServlet {
+public class ChangeAccountServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,25 +27,26 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+            
+            String login = request.getParameter("login");
+            String new_password = request.getParameter("new_password");
+            String phone = request.getParameter("phone");
+            String place = request.getParameter("place");
             Statement stmt = null;
             Connection conn = DBconnection.connection();
-            try {
-                stmt = conn.createStatement();
-                
-                
-                String sql = "INSERT INTO public.user (email,login,password) "
-                        + "values('" + request.getParameter("email") + "','" + request.getParameter("login") + "','" + request.getParameter("password") + "');";
+           
+            
+            System.out.println(login + new_password + phone + place);
+            try{
+                stmt = conn.createStatement();    
+                String sql = "update public.user set login = '" +login+ "', password = '" +new_password+ "', phone = '" +phone+ "', place = '" +place+ "' where email = '" +request.getSession().getAttribute("LogEmail")+ "';";
 
-               // out.println(sql);
-                
-                
-                response.sendRedirect("registry.jsp");
-                
+                response.sendRedirect("index.jsp");
                 stmt.executeQuery(sql);
-
-            } catch (SQLException ex) {
+            
+            }catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 out.close();
@@ -67,7 +61,6 @@ public class RegisterServlet extends HttpServlet {
                     ex.printStackTrace();
                 }
             }
-
         }
     }
 
@@ -84,7 +77,6 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
     }
 
     /**
@@ -99,8 +91,6 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.setContentType("text/html;charset=UTF-8");
-        
     }
 
     /**
