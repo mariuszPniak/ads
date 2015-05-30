@@ -34,7 +34,7 @@
     </servlet>
     <servlet>
         <servlet-name>userServlet</servlet-name>
-        <servlet-class>DB.userServlet</servlet-class>
+        <servlet-class>DB.UServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
