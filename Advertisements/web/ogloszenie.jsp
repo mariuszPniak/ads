@@ -41,7 +41,7 @@
                         <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>${Users.phone}</p>
                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>${Users.email}</p>
                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>${Users.place}</p>
-                        <form method="get" action="user"><input type="hidden" name="login" value="${Users.login}"><button type="submit" class="center-block btn btn-primary">Wyświetl dane użytkownika</button></form>
+                        <form method="get" action="users"><input type="hidden" name="login" value="${Users.login}"><button type="submit" class="center-block btn btn-primary">Wyświetl dane użytkownika</button></form>
                       </div>
 
 
