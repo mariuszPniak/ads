@@ -10,7 +10,7 @@
 
                                 <img src="img/advert/${a.photo}" width="85px" height="85px"  alt="ogloszenie"/> 
                                 <form method="get" action="ogloszenie"><input name="ogloszenie" value="${a.id_advert}" type="hidden">
-                                    <p>${a.content}<input id="zobacz_wiecej" type="submit"></p> 
+                                    <p>${a.content}<input id="zobacz_wiecej" type="submit" value="Zobacz więcej..."></p> 
                                 </form>
                             </div>
                         </c:forEach>

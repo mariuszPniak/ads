@@ -60,13 +60,6 @@ public class AdvertServlet extends HttpServlet {
             int month = date.get(Calendar.MONTH);
             int day = date.get(Calendar.DAY_OF_MONTH);
             
-            
-            
-            
-      
-            
-            
-            
             Statement stmt = null;
             Connection conn = DBconnection.connection();
             try {

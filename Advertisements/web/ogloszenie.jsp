@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 2015-05-20, 16:33:15
-    Author     : Mariusz
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,6 +5,7 @@
 <html>
     <%@include file="sectionsHTML/head.jsp" %>
     <body>
+
 
 
         <%@include file="sectionsHTML/header.jsp" %>
@@ -59,6 +55,7 @@
 
         <%@include file="sectionsHTML/scripts.jsp" %>
         
+
 
     </body>
 </html>

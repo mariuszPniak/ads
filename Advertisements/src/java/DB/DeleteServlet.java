@@ -6,8 +6,8 @@
 package DB;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -16,12 +16,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Mariusz
  */
-public class RegisterServlet extends HttpServlet {
+public class DeleteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,29 +35,34 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-
-            Statement stmt = null;
-            Connection conn = DBconnection.connection();
+        response.setContentType("text/html;charset=UTF-8");
+        
+        
+        String ad=request.getParameter("ogloszenie");
+        
+        ResultSet result = null;
+        Statement stmt = null;
+      //  int b=0;
+        Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
-                
-                
-                String sql = "INSERT INTO public.user (email,login,password) "
-                        + "values('" + request.getParameter("email") + "','" + request.getParameter("login") + "','" + request.getParameter("password") + "');";
+                Statement stmt2 = conn.createStatement();
 
-               // out.println(sql);
+                String sql = "DELETE FROM public.advert where id_advert='"+ad+"'";
                 
                 
-                response.sendRedirect("registry.jsp");
-                
-                stmt.executeQuery(sql);
-
+                boolean a = true;  
+                request.setAttribute("nr", ad);
+                request.setAttribute("Deleted", a);
+               request.getRequestDispatcher("user").forward(request, response);
+               stmt.executeQuery(sql);
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
-                out.close();
                 try {
+                    if (result != null) {
+                        result.close();
+                    }
                     if (stmt != null) {
                         stmt.close();
                     }
@@ -67,8 +73,6 @@ public class RegisterServlet extends HttpServlet {
                     ex.printStackTrace();
                 }
             }
-
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -84,7 +88,6 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
     }
 
     /**
@@ -99,8 +102,6 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.setContentType("text/html;charset=UTF-8");
-        
     }
 
     /**
