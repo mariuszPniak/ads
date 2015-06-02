@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Widoczne tylko po zalogowaniu -->
 
@@ -38,10 +39,11 @@
             </div>
         </c:if>
 
-
+        <c:if test="${verify == null}">
         <!-- okienko modal do logowania -->   
         <div class="modal fade" id="okienkoLogowania" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
             <div class="modal-dialog">
+                
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
@@ -59,6 +61,37 @@
                 </div>
             </div>
         </div>
+        </c:if>
+        
+        
+        <c:if test="${verify != null}">
+        <div class="modal fade" id="okienkoLogowania" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+            <div class="modal-dialog">
+                <p>lalalal hdhshdshshdhsd</p>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                        <h3 class="modal-title text-center" id="myModalLabel">Logowanie</h3>
+                    </div>
+                    <form action="login" method="POST" role="form">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Podaj swój adres e-mail">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Wprowadź hasło">
+                        </div>
+                        <button type="submit" class="btn btn-primary button-login">Zaloguj</button>                                           
+                    </form>
+                </div>
+            </div>
+        </div>
+         </c:if>
+        
+            
+            
+            
+            
+       
 
         <!-- okienko modal do rejestracji -->
         <div class="modal fade" id="okienkoRejestracji" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

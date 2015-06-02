@@ -47,6 +47,9 @@ public class LoginServlet extends HttpServlet {
                 result=stmt.executeQuery(sql);
                 
                 if (result==null || !result.isBeforeFirst()){
+                    String a = "fail";
+                    request.setAttribute("verify", a);
+                    request.getRequestDispatcher("index.html").forward(request, response);
                 } else {
                     session.setAttribute("LogEmail", email);
                     session.setAttribute("Pass", password);

@@ -714,7 +714,13 @@ form{
 }
 
 
-
+.dg{
+    background: #c30000;
+    border: #950000 3px solid;
+    color:white;
+    padding: 5px 0;
+    font-size: 15px!important;
+}
 
 
 /* Po rejestracji */
