@@ -459,7 +459,6 @@ form{
 
 
 #footer{
-    min-height: 650px;
     width: 100%;
     background-image: url("../img/footer.jpg");
     background-size: cover;
@@ -467,9 +466,13 @@ form{
 
 }
 
+.realizacja{
+    border-top: #ffffff 2px solid;
+    background: yellow;
+}
+
 
 #footer_czarny{
-    min-height: 650px;
     width: 100%;
     background-color: transparent;
     background-color: rgba(0, 0, 0, 0.92);
@@ -506,6 +509,7 @@ form{
     width: 70%;
     margin: 0 auto;
     padding-top: 20px;
+    padding-bottom: 40px;
 }
 
 .pKontakt{
