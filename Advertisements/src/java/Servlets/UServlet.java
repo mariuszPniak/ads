@@ -1,6 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Servlets;
 
-package DB;
-
+import Beans.Ads;
+import DB.DBconnection;
+import Beans.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -16,13 +23,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.PrintWriter;
 
 /**
  *
  * @author Mariusz
  */
-public class IndexServlet extends HttpServlet {
+public class UServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,64 +42,64 @@ public class IndexServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        
-   //     PrintWriter out = response.getWriter();
         try (PrintWriter out = response.getWriter()) {
+           
             
-        String email=request.getParameter("email");
-        String password=request.getParameter("password");
-        List<Ads> ads = new ArrayList<Ads>();
-        List<Ads> adsPremium = new ArrayList<Ads>();
-        
+        String login=request.getParameter("login");
+        String count=null;
         ResultSet result = null;
-        ResultSet rsEmail = null;
+        ResultSet resultAds = null;
         Statement stmt = null;
-      //  int b=0;
+        Ads adRecord = null;
+        List<Ads> ads = new ArrayList<Ads>();
+        Users user = null;
+        
         Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
-                Statement stmt2 = conn.createStatement();
-                HttpSession session = request.getSession();
 
-                String sql = "select * from advert where premium='f' order by advert_date desc limit 10";                
+                String sql = "select * from public.user where login='"+login+"';";
+                out.println(sql);
                 result=stmt.executeQuery(sql);
-               
+                
                 if (result==null || !result.isBeforeFirst()){
                 } else {
-                    while(result.next()){
-                        String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
-                        rsEmail = stmt2.executeQuery(sqlUserEmail);
-                        rsEmail.next();
-                        Ads adRecord = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
+                        result.next();
+                        user = new Users(result.getString("id_user"),result.getString("email"),result.getString("login"),result.getString("password"),result.getString("phone"),result.getString("place"));
+                        
+                }
+                
+                String userID=result.getString("id_user");
+                
+                sql = "select count(*) from public.advert where id_user='"+userID+"';";
+                out.println(sql);
+                result=stmt.executeQuery(sql);
+                
+                if (result==null || !result.isBeforeFirst()){
+                } else {
+                        result.next();
+                        count = result.getString(1);
+                }
+                out.println("lalalalal");
+                
+                sql = "select * from public.advert where id_user='"+userID+"';";
+                out.println("lalalalal");
+                out.println(sql);
+                resultAds=stmt.executeQuery(sql);
+                if (resultAds==null || !resultAds.isBeforeFirst()){
+                } else {
+                    while(resultAds.next()){
+                        adRecord = new Ads(resultAds.getString("id_advert"),resultAds.getString("id_user"),resultAds.getString("category"),resultAds.getString("title"),resultAds.getString("advert_date"),resultAds.getString("price"),resultAds.getString("content"),resultAds.getString("premium"),resultAds.getString("photo"));
                         ads.add(adRecord);
-                        System.out.println("poszlo");
-                        System.out.println(ads);
-            //            out.println(result.getString("photo"));
                     }
                 }
                 
-
-                sql = "select * from advert where premium='t' order by advert_date desc";
-                result=stmt.executeQuery(sql);
-                
-                if (result==null || !result.isBeforeFirst()){
-                } else {
-                    while(result.next()){
-                        String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
-                        rsEmail = stmt2.executeQuery(sqlUserEmail);
-                        rsEmail.next();
-                        Ads adRecordPremium = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
-                        adsPremium.add(adRecordPremium);
-                    }
+                if(ads.size()!=0){
+                   request.setAttribute("Ads", ads); 
                 }
-                
-                
-                
-
-                request.setAttribute("Ads", ads);
-                request.setAttribute("AdsPremium", adsPremium);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.setAttribute("Users", user);
+                request.setAttribute("Count",count);
+                request.getRequestDispatcher("user.jsp").forward(request, response);
                 
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -112,9 +118,12 @@ public class IndexServlet extends HttpServlet {
                     ex.printStackTrace();
                 }
             }
+            
+            
+        }
     }
 
-    } // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

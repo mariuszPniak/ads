@@ -1,15 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package DB;
+package Servlets;
 
+import Beans.Ads;
+import DB.DBconnection;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -18,11 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Mariusz
- */
-public class DeleteServlet extends HttpServlet {
+
+public class UserServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,26 +33,72 @@ public class DeleteServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
         
+   //     PrintWriter out = response.getWriter();
+        try (PrintWriter out = response.getWriter()) {
+            
+        String email=request.getParameter("email");
+        String password=request.getParameter("password");
+        String login = "";
+        String phone = "";
+        String place = "";
+        int id_usera = 0;
+        int number_of_ads = 0;
         
-        String ad=request.getParameter("ogloszenie");
+        List<Ads> userAds = new ArrayList<Ads>();
         
         ResultSet result = null;
+        ResultSet result2 = null;
+        ResultSet result3 = null;
         Statement stmt = null;
-      //  int b=0;
+        ResultSet rsEmail = null;
+
         Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
                 Statement stmt2 = conn.createStatement();
+                Statement stmt3 = conn.createStatement();
+                HttpSession session = request.getSession();
 
-                String sql = "DELETE FROM public.advert where id_advert='"+ad+"'";
+                
+                String sql = "select * from public.user where email = '"+request.getSession().getAttribute("LogEmail")+"';";
+                result=stmt.executeQuery(sql);
+                while (result.next()) {
+                     password = result.getString("password");
+                     login = result.getString("login");
+                     phone = result.getString("phone");
+                     place = result.getString("place");
+                     id_usera = result.getInt("id_user");
+                     session.setAttribute("password", password); 
+                     session.setAttribute("login", login);
+                     session.setAttribute("place", place);
+                     session.setAttribute("phone", phone);         
+                }
+                
+                String sql2 = "select count(id_user) as ilosc_ogloszen from public.advert where id_user  = '"+id_usera+"';";
+                result2=stmt2.executeQuery(sql2);
+                while (result2.next()) {
+                     number_of_ads = result2.getInt("ilosc_ogloszen"); 
+                     request.setAttribute("ilosc_ogloszen", number_of_ads);
+                }
                 
                 
-                boolean a = true;  
-                request.setAttribute("nr", ad);
-                request.setAttribute("Deleted", a);
-               request.getRequestDispatcher("user").forward(request, response);
-               stmt.executeQuery(sql);
+                String sql3 = "select * from advert where id_user = "+id_usera+";";
+                result=stmt.executeQuery(sql3);
+                if (result==null || !result.isBeforeFirst()){
+                } else {
+                    while(result.next()){
+                        Ads adRecord5 = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
+                        userAds.add(adRecord5);
+                        System.out.println(userAds);
+                    }
+                }
+
+                request.setAttribute("userAds", userAds);
+                request.getRequestDispatcher("konto.jsp").forward(request, response);
+
+                
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
@@ -73,6 +116,8 @@ public class DeleteServlet extends HttpServlet {
                     ex.printStackTrace();
                 }
             }
+    }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

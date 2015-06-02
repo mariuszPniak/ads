@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DB;
+package Servlets;
 
+import Beans.Ads;
+import DB.DBconnection;
+import Beans.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;

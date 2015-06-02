@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DB;
+package Servlets;
 
+import DB.DBconnection;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -25,7 +23,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Mariusz
  */
-public class UServlet extends HttpServlet {
+public class DeleteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,65 +37,26 @@ public class UServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-           
-            
-        String login=request.getParameter("login");
-        String count=null;
-        ResultSet result = null;
-        ResultSet resultAds = null;
-        Statement stmt = null;
-        Ads adRecord = null;
-        List<Ads> ads = new ArrayList<Ads>();
-        Users user = null;
         
+        
+        String ad=request.getParameter("ogloszenie");
+        
+        ResultSet result = null;
+        Statement stmt = null;
+      //  int b=0;
         Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
+                Statement stmt2 = conn.createStatement();
 
-                String sql = "select * from public.user where login='"+login+"';";
-                out.println(sql);
-                result=stmt.executeQuery(sql);
+                String sql = "DELETE FROM public.advert where id_advert='"+ad+"'";
                 
-                if (result==null || !result.isBeforeFirst()){
-                } else {
-                        result.next();
-                        user = new Users(result.getString("id_user"),result.getString("email"),result.getString("login"),result.getString("password"),result.getString("phone"),result.getString("place"));
-                        
-                }
                 
-                String userID=result.getString("id_user");
-                
-                sql = "select count(*) from public.advert where id_user='"+userID+"';";
-                out.println(sql);
-                result=stmt.executeQuery(sql);
-                
-                if (result==null || !result.isBeforeFirst()){
-                } else {
-                        result.next();
-                        count = result.getString(1);
-                }
-                out.println("lalalalal");
-                
-                sql = "select * from public.advert where id_user='"+userID+"';";
-                out.println("lalalalal");
-                out.println(sql);
-                resultAds=stmt.executeQuery(sql);
-                if (resultAds==null || !resultAds.isBeforeFirst()){
-                } else {
-                    while(resultAds.next()){
-                        adRecord = new Ads(resultAds.getString("id_advert"),resultAds.getString("id_user"),resultAds.getString("category"),resultAds.getString("title"),resultAds.getString("advert_date"),resultAds.getString("price"),resultAds.getString("content"),resultAds.getString("premium"),resultAds.getString("photo"));
-                        ads.add(adRecord);
-                    }
-                }
-                
-                if(ads.size()!=0){
-                   request.setAttribute("Ads", ads); 
-                }
-                request.setAttribute("Users", user);
-                request.setAttribute("Count",count);
-                request.getRequestDispatcher("user.jsp").forward(request, response);
-                
+                boolean a = true;  
+                request.setAttribute("nr", ad);
+                request.setAttribute("Deleted", a);
+               request.getRequestDispatcher("user").forward(request, response);
+               stmt.executeQuery(sql);
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
@@ -115,9 +74,6 @@ public class UServlet extends HttpServlet {
                     ex.printStackTrace();
                 }
             }
-            
-            
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

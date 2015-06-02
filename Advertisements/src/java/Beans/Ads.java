@@ -1,5 +1,5 @@
 
-package DB;
+package Beans;
 
 
 public class Ads {

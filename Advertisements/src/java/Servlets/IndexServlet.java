@@ -1,5 +1,8 @@
-package DB;
 
+package Servlets;
+
+import Beans.Ads;
+import DB.DBconnection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -15,9 +18,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
-
-public class UserServlet extends HttpServlet {
+/**
+ *
+ * @author Mariusz
+ */
+public class IndexServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,64 +45,57 @@ public class UserServlet extends HttpServlet {
             
         String email=request.getParameter("email");
         String password=request.getParameter("password");
-        String login = "";
-        String phone = "";
-        String place = "";
-        int id_usera = 0;
-        int number_of_ads = 0;
-        
-        List<Ads> userAds = new ArrayList<Ads>();
+        List<Ads> ads = new ArrayList<Ads>();
+        List<Ads> adsPremium = new ArrayList<Ads>();
         
         ResultSet result = null;
-        ResultSet result2 = null;
-        ResultSet result3 = null;
-        Statement stmt = null;
         ResultSet rsEmail = null;
-
+        Statement stmt = null;
+      //  int b=0;
         Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
                 Statement stmt2 = conn.createStatement();
-                Statement stmt3 = conn.createStatement();
                 HttpSession session = request.getSession();
 
-                
-                String sql = "select * from public.user where email = '"+request.getSession().getAttribute("LogEmail")+"';";
+                String sql = "select * from advert where premium='f' order by advert_date desc limit 10";                
                 result=stmt.executeQuery(sql);
-                while (result.next()) {
-                     password = result.getString("password");
-                     login = result.getString("login");
-                     phone = result.getString("phone");
-                     place = result.getString("place");
-                     id_usera = result.getInt("id_user");
-                     session.setAttribute("password", password); 
-                     session.setAttribute("login", login);
-                     session.setAttribute("place", place);
-                     session.setAttribute("phone", phone);         
-                }
-                
-                String sql2 = "select count(id_user) as ilosc_ogloszen from public.advert where id_user  = '"+id_usera+"';";
-                result2=stmt2.executeQuery(sql2);
-                while (result2.next()) {
-                     number_of_ads = result2.getInt("ilosc_ogloszen"); 
-                     request.setAttribute("ilosc_ogloszen", number_of_ads);
-                }
-                
-                
-                String sql3 = "select * from advert where id_user = "+id_usera+";";
-                result=stmt.executeQuery(sql3);
+               
                 if (result==null || !result.isBeforeFirst()){
                 } else {
                     while(result.next()){
-                        Ads adRecord5 = new Ads(result.getString("id_advert"),result.getString("id_user"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
-                        userAds.add(adRecord5);
-                        System.out.println(userAds);
+                        String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
+                        rsEmail = stmt2.executeQuery(sqlUserEmail);
+                        rsEmail.next();
+                        Ads adRecord = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
+                        ads.add(adRecord);
+                        System.out.println("poszlo");
+                        System.out.println(ads);
+            //            out.println(result.getString("photo"));
                     }
                 }
+                
 
-                request.setAttribute("userAds", userAds);
-                request.getRequestDispatcher("konto.jsp").forward(request, response);
+                sql = "select * from advert where premium='t' order by advert_date desc";
+                result=stmt.executeQuery(sql);
+                
+                if (result==null || !result.isBeforeFirst()){
+                } else {
+                    while(result.next()){
+                        String sqlUserEmail = "select login from public.user where id_user="+result.getString("id_user")+";";
+                        rsEmail = stmt2.executeQuery(sqlUserEmail);
+                        rsEmail.next();
+                        Ads adRecordPremium = new Ads(result.getString("id_advert"),rsEmail.getString("login"),result.getString("category"),result.getString("title"),result.getString("advert_date"),result.getString("price"),result.getString("content"),result.getString("premium"),result.getString("photo"));
+                        adsPremium.add(adRecordPremium);
+                    }
+                }
+                
+                
+                
 
+                request.setAttribute("Ads", ads);
+                request.setAttribute("AdsPremium", adsPremium);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
                 
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,9 +116,7 @@ public class UserServlet extends HttpServlet {
             }
     }
 
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    } // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

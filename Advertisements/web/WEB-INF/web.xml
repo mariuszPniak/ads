@@ -2,51 +2,51 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>DB.RegisterServlet</servlet-class>
+        <servlet-class>Servlets.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>DB.LoginServlet</servlet-class>
+        <servlet-class>Servlets.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>DB.LogoutServlet</servlet-class>
+        <servlet-class>Servlets.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdvertServlet</servlet-name>
-        <servlet-class>DB.AdvertServlet</servlet-class>
+        <servlet-class>Servlets.AdvertServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>DB.IndexServlet</servlet-class>
+        <servlet-class>Servlets.IndexServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PhotoServlet</servlet-name>
-        <servlet-class>DB.PhotoServlet</servlet-class>
+        <servlet-class>Servlets.PhotoServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>searchServlet</servlet-name>
-        <servlet-class>DB.searchServlet</servlet-class>
+        <servlet-class>Servlets.searchServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>adServlet</servlet-name>
-        <servlet-class>DB.adServlet</servlet-class>
+        <servlet-class>Servlets.adServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UServlet</servlet-name>
-        <servlet-class>DB.UServlet</servlet-class>
+        <servlet-class>Servlets.UServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>DB.UserServlet</servlet-class>
+        <servlet-class>Servlets.UserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ChangeAccountServlet</servlet-name>
-        <servlet-class>DB.ChangeAccountServlet</servlet-class>
+        <servlet-class>Servlets.ChangeAccountServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteServlet</servlet-name>
-        <servlet-class>DB.DeleteServlet</servlet-class>
+        <servlet-class>Servlets.DeleteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>

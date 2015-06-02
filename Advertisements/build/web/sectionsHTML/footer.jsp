@@ -30,9 +30,6 @@
                                     <li><a href="#">consectetur</a></li>
                                     <li><a href="#">adipisicing</a></li>       
                                 </ul>
-
-                                
-
                             </div>
                         </div>
 
