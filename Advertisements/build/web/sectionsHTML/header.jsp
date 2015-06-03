@@ -39,11 +39,10 @@
             </div>
         </c:if>
 
-        <c:if test="${verify == null}">
+
         <!-- okienko modal do logowania -->   
         <div class="modal fade" id="okienkoLogowania" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
             <div class="modal-dialog">
-                
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
@@ -61,13 +60,9 @@
                 </div>
             </div>
         </div>
-        </c:if>
         
-        
-        <c:if test="${verify != null}">
         <div class="modal fade" id="okienkoLogowania" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
             <div class="modal-dialog">
-                <p>lalalal hdhshdshshdhsd</p>
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
@@ -85,12 +80,7 @@
                 </div>
             </div>
         </div>
-         </c:if>
         
-            
-            
-            
-            
        
 
         <!-- okienko modal do rejestracji -->

@@ -81,7 +81,7 @@ private final String UPLOAD_DIRECTORY = "../../../web/img/advert";
             
                 System.out.println(ilosc + "----------------------------------------");
             String sql2 = "update advert set photo='" + name + "' where id_advert= "+ilosc;
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("index.html");
         //    out.println(name);
             stmt.executeQuery(sql2);
             

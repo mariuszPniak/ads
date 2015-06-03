@@ -3,20 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/ads/Advertisements/src/java/Servlets/adServlet.java</file>
             <file>file:/D:/ads/Advertisements/web/konto.jsp</file>
+            <file>file:/D:/ads/Advertisements/web/sectionsHTML/slider.jsp</file>
+            <file>file:/D:/ads/Advertisements/web/sectionsHTML/footer.jsp</file>
             <file>file:/D:/ads/Advertisements/web/css/style.css</file>
             <file>file:/D:/ads/Advertisements/nbproject/private/private.xml</file>
             <file>file:/D:/ads/Advertisements/web/user.jsp</file>
-            <file>file:/D:/ads/Advertisements/src/java/DB/AdvertServlet.java</file>
+            <file>file:/D:/ads/Advertisements/src/java/Servlets/DeleteServlet.java</file>
             <file>file:/D:/ads/Advertisements/web/sectionsHTML/content.jsp</file>
             <file>file:/D:/ads/Advertisements/web/sectionsHTML/header.jsp</file>
-            <file>file:/D:/ads/Advertisements/src/java/DB/adServlet.java</file>
             <file>file:/D:/ads/Advertisements/nbproject/private/private.properties</file>
+            <file>file:/D:/ads/Advertisements/src/java/Servlets/UserServlet.java</file>
+            <file>file:/D:/ads/Advertisements/src/java/Beans/Ads.java</file>
             <file>file:/D:/ads/Advertisements/web/ogloszenie.html</file>
-            <file>file:/D:/ads/Advertisements/src/java/DB/DeleteServlet.java</file>
+            <file>file:/D:/ads/Advertisements/src/java/Servlets/AdvertServlet.java</file>
             <file>file:/D:/ads/Advertisements/web/WEB-INF/web.xml</file>
+            <file>file:/D:/ads/Advertisements/src/java/Servlets/LoginServlet.java</file>
             <file>file:/D:/ads/Advertisements/web/ogloszenie.jsp</file>
-            <file>file:/D:/ads/Advertisements/src/java/DB/UserServlet.java</file>
+            <file>file:/D:/ads/Advertisements/src/java/DB/DBconnection.java</file>
+            <file>file:/D:/ads/Advertisements/src/java/Beans/Users.java</file>
+            <file>file:/D:/ads/Advertisements/nbproject/project.properties</file>
         </group>
     </open-files>
 </project-private>

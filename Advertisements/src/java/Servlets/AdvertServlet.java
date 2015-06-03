@@ -74,7 +74,7 @@ public class AdvertServlet extends HttpServlet {
                 }
                 rs.close();
                 
-                ResultSet rs2 = stmt.executeQuery("select count(id_advert) as liczba from public.advert;");
+                ResultSet rs2 = stmt.executeQuery("select max(id_advert) as liczba from public.advert;");
                 while (rs2.next()) {
                     ilosc = rs2.getInt("liczba");
                 }
@@ -82,15 +82,15 @@ public class AdvertServlet extends HttpServlet {
                 ilosc = ilosc + 1;
                 
                 
-                String sql = "INSERT INTO public.advert (id_advert,id_user,category,title,advert_date,price,content,premium,photo) "
-                        + "values(" + ilosc + "," + id_user + ",'" + request.getParameter("category") + "','" + request.getParameter("title") +"', '" + year+"-05-"+ day+"'," + request.getParameter("price") +",'" + request.getParameter("content") + "','" +request.getParameter("premium") +"','');";
-                  
+                String sql = "INSERT INTO public.advert (id_advert,id_user,category,title,advert_date,price,content,premium) "
+                        + "values(" + ilosc + "," + id_user + ",'" + request.getParameter("category") + "','" + request.getParameter("title") +"', "+"current_date" +"," + request.getParameter("price") +",'" + request.getParameter("content") + "','" +request.getParameter("premium") +"');";
+               
             //    out.println(request.getParameter("photo"));
             //    out.println(request.getParameter("premium") + request.getParameter("photo")+ request.getParameter("category"));
             //    stmt.executeQuery(sql);
                 
            //     String sql2 = "UPDATE advert SET photo = '"+request.getParameter("photo")+"' WHERE id_advert ="+ilosc+";";
-                response.sendRedirect("dodaj_zdjecie.jsp");
+              response.sendRedirect("dodaj_zdjecie.jsp");
 
                 stmt.executeQuery(sql);
                 
