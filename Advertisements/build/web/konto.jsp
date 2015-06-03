@@ -49,7 +49,7 @@
                                     </tr>
                                     <tr>
                                         <td>Dodanych ogłoszeń</td>
-                                        <td>${ilosc_ogloszen}</td>
+                                        <td><c:if test="${Deleted != null}">${ilosc_ogloszen-1}</c:if><c:if test="${Deleted == null}">${ilosc_ogloszen}</c:if></td>
                                     </tr>
                                 </table>
                             </div>
