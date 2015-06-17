@@ -732,3 +732,33 @@ form{
 .rejestracja-info button{
     width: 100%;
 }
+
+
+
+
+/* Konwersacja uzytkownikow */
+
+.login-wiadomosci{
+    margin-top: 30px;
+    margin-bottom: 2px;
+}
+
+.wiadomosc-nadawcy{
+    border-radius: 8px;
+    background-color: #4cae4c;
+    padding: 10px 0px 10px 12px;
+}
+
+.wiadomosc-nadawcy p{
+    margin: 0;
+}
+
+.wiadomosc-odbiorcy{
+    border-radius: 8px;
+    background-color: #269abc;
+    padding: 10px 0px 10px 12px;
+}
+
+.wiadomosc-odbiorcy p{
+    margin: 0;
+}

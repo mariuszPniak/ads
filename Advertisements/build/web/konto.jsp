@@ -26,6 +26,7 @@
                         <ul class="nav nav-pills nav-stacked col-md-4">
                             <li class="active"><a href="#twoje_dane" data-toggle="tab" class="active">Twoje konto</a></li>
                             <li><a href="#edytuj_dane" data-toggle="tab">Edytuj swoje dane</a></li>
+                            <li><a href="#twoje_wiadomosci" data-toggle="tab">Twoja skrzynka odbiorcza</a></li>
                         </ul>
 
                         <div class="tab-content">
@@ -62,51 +63,37 @@
                                     <button type="submit" class="btn btn-info pull-right">Prześlij</button>
                                 </form>
                             </div>
-
-                            <div class="col-md-12">
-                                
-                                <h3 class="text-center">Moje ogłoszenia</h3>
-                                
-                                <c:forEach var="a" items="${userAds}">
                                     
-                                    <c:if test="${a.id_advert != nr}">
-                                        
-                                    
-                                    <div class="ogloszenie_usera"> 
-                                        <form action="delete" method="get">
-                                            <input type="hidden" value="${a.id_advert}" name="ogloszenie">
-                                            <input id="usun" class="center-block" type="submit" value="usuń">
-                                        </form>
-                                        <form action="ogloszenie" method="get">
-                                            <input type="hidden" value="${a.id_advert}" name="ogloszenie">
-                                            <input id="input_ogloszenie_usera" class="center-block" type="submit" value="${a.title}">
-                                        </form>
-                                       
-                                        <p>${a.content}</p>
+                            <div class="tab-pane fade col-md-8" id="twoje_wiadomosci">
+                                <div class="ogloszenie_usera">
+                                    <div id="usun">
+                                        <a href="wiadomosci.jsp">Czytaj</a>
                                     </div>
-                                    
+                                    <form action="ogloszenie" method="get">
+                                        <input type="hidden" value="${a.id_advert}" name="ogloszenie">
+                                        <input id="input_ogloszenie_usera" class="center-block" type="submit" value="Kierowca">
+                                    </form>                                 
+                                    <p>Poszukujemy doświadczonych kierowców samochodów ciężarowych (tandem) praca na terenie Unii Europejskiej- prawo jazdy kat C+E, karta kierowcy, bez nałogów, umowa o pracę, dwutygodniowe kółka.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">                             
+                                <h3 class="text-center">Moje ogłoszenia</h3>  
+                                <c:forEach var="a" items="${userAds}">           
+                                    <c:if test="${a.id_advert != nr}">
+                                        <div class="ogloszenie_usera"> 
+                                            <form action="delete" method="get">
+                                                <input type="hidden" value="${a.id_advert}" name="ogloszenie">
+                                                <input id="usun" class="center-block" type="submit" value="usuń">
+                                            </form>
+                                            <form action="ogloszenie" method="get">
+                                                <input type="hidden" value="${a.id_advert}" name="ogloszenie">
+                                                <input id="input_ogloszenie_usera" class="center-block" type="submit" value="${a.title}">
+                                            </form>                                 
+                                            <p>${a.content}</p>
+                                        </div> 
                                     </c:if>
-                                </c:forEach>
-                                
-                                
-
-
-                                
-<!--                                <h3 class="text-center">Twoje ogłoszenia</h3>
-
-                                <div class="ogloszenie_usera">
-                                    <h5>Sprzedam rybki</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis voluptatibus consequuntur ducimus, reprehenderit ullam aliquam nulla vitae laudantium assumenda tempore dolorem cupiditate numquam veritatis dicta eveniet hic quo rerum id?</p>
-                                </div>
-                                <div class="ogloszenie_usera">
-                                    <h5>Szukam pracy</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis voluptatibus consequuntur ducimus, reprehenderit ullam aliquam nulla vitae laudantium assumenda tempore dolorem cupiditate numquam veritatis dicta eveniet hic quo rerum id?</p>
-                                </div>
-                                <div class="ogloszenie_usera">
-                                    <h5>Sprzedam samochÃ³d</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis voluptatibus consequuntur ducimus, reprehenderit ullam aliquam nulla vitae laudantium assumenda tempore dolorem cupiditate numquam veritatis dicta eveniet hic quo rerum id?</p>
-                                </div>-->
-
+                                </c:forEach>       
                             </div>
                         </div>
                     </div>
