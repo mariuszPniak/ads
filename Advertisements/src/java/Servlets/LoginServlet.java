@@ -9,6 +9,7 @@ import DB.DBconnection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,14 +38,15 @@ public class LoginServlet extends HttpServlet {
         String login = "";
         
         ResultSet result = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         Connection conn = DBconnection.connection();
             try {
-                stmt = conn.createStatement();
 
                 HttpSession session = request.getSession();
-                String sql = "SELECT * from public.user where email='"+email+"' and password='"+password+"';";
-                result=stmt.executeQuery(sql);
+                stmt = conn.prepareStatement("SELECT * from public.user where email=? and password=?;");
+                stmt.setString(1, email);
+                stmt.setString(2, password);
+                result=stmt.executeQuery();
                 
                 if (result==null || !result.isBeforeFirst()){
                     String a = "fail";
