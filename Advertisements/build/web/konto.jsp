@@ -30,62 +30,93 @@
                         </ul>
 
                         <div class="tab-content">
-                            <div class="tab-pane fade in active col-md-8" id="twoje_dane">
-                                <table class="table table-bordered text-center">
-                                    <tr>
-                                        <td>Adres e-mail</td>
-                                        <td>${sessionScope.LogEmail}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Login</td>
-                                        <td>${sessionScope.login}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Telefon</td>
-                                        <td>${sessionScope.phone}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Miejscowość</td>
-                                        <td>${sessionScope.place}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dodanych ogłoszeń</td>
-                                        <td><c:if test="${Deleted != null}">${ilosc_ogloszen-1}</c:if><c:if test="${Deleted == null}">${ilosc_ogloszen}</c:if></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="tab-pane fade col-md-8" id="edytuj_dane">
-                                <form method="post" action="change-account">
-                                    <input type="text" name="login" value="${sessionScope.login}" class="form-control" placeholder="Nowy login">
-                                    <input type="text" name="new_password" value="${sessionScope.login}" class="form-control" placeholder="Nowe hasło">
-                                    <input type="text" name="phone" value="${sessionScope.phone}" class="form-control" placeholder="Nowy numer telefonu">
-                                    <input type="text" name="place" value="${sessionScope.place}" class="form-control" placeholder="Nowa miejscowość">
-                                    <button type="submit" class="btn btn-info pull-right">Prześlij</button>
-                                </form>
+                            
+                            <div class="tab-pane fade in active" id="twoje_dane">
+                                <div class="col-md-8">
+                                    <table class="table table-bordered text-center">
+                                        <tr>
+                                            <td>Adres e-mail</td>
+                                            <td>${sessionScope.LogEmail}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Login</td>
+                                            <td>${sessionScope.login}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Telefon</td>
+                                            <td>${sessionScope.phone}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Miejscowość</td>
+                                            <td>${sessionScope.place}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dodanych ogłoszeń</td>
+                                            <td><c:if test="${Deleted != null}">${ilosc_ogloszen-1}</c:if><c:if test="${Deleted == null}">${ilosc_ogloszen}</c:if></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                        
+                                <div class="col-md-12">                             
+                                    <h3 class="text-center">Moje ogłoszenia</h3>  
+                                    <c:forEach var="a" items="${userAds}">           
+                                        <c:if test="${a.id_advert != nr}">
+                                            <div class="ogloszenie_usera"> 
+                                                <form action="delete" method="get">
+                                                    <input type="hidden" value="${a.id_advert}" name="ogloszenie">
+                                                    <input id="usun" class="center-block" type="submit" value="usuń">
+                                                </form>
+                                                <form action="ogloszenie" method="get">
+                                                    <input type="hidden" value="${a.id_advert}" name="ogloszenie">
+                                                    <input id="input_ogloszenie_usera" class="center-block" type="submit" value="${a.title}">
+                                                </form>                                 
+                                                <p>${a.content}</p>
+                                            </div> 
+                                        </c:if>
+                                    </c:forEach>       
+                                </div> 
                             </div>
                                     
-                            <div class="tab-pane fade col-md-8" id="twoje_wiadomosci">
-                                <div class="ogloszenie_usera">
-                                    <div id="usun">
-                                        <a href="wiadomosci.jsp">Czytaj</a>
-                                    </div>
-                                    <form action="ogloszenie" method="get">
-                                        <input type="hidden" value="${a.id_advert}" name="ogloszenie">
-                                        <input id="input_ogloszenie_usera" class="center-block" type="submit" value="Kierowca">
-                                    </form>                                 
-                                    <p>Poszukujemy doświadczonych kierowców samochodów ciężarowych (tandem) praca na terenie Unii Europejskiej- prawo jazdy kat C+E, karta kierowcy, bez nałogów, umowa o pracę, dwutygodniowe kółka.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">                             
-                                <h3 class="text-center">Moje ogłoszenia</h3>  
+                            <div class="tab-pane fade" id="edytuj_dane">        
+                                <div class="col-md-8">
+                                    <form method="post" action="change-account">
+                                        <input type="text" name="login" value="${sessionScope.login}" class="form-control" placeholder="Nowy login">
+                                        <input type="text" name="new_password" value="${sessionScope.login}" class="form-control" placeholder="Nowe hasło">
+                                        <input type="text" name="phone" value="${sessionScope.phone}" class="form-control" placeholder="Nowy numer telefonu">
+                                        <input type="text" name="place" value="${sessionScope.place}" class="form-control" placeholder="Nowa miejscowość">
+                                        <button type="submit" class="btn btn-info pull-right">Prześlij</button>
+                                    </form>
+                                </div>     
+                                        
+                                <div class="col-md-12">                             
+                                    <h3 class="text-center">Moje ogłoszenia</h3>  
+                                    <c:forEach var="a" items="${userAds}">           
+                                        <c:if test="${a.id_advert != nr}">
+                                            <div class="ogloszenie_usera"> 
+                                                <form action="delete" method="get">
+                                                    <input type="hidden" value="${a.id_advert}" name="ogloszenie">
+                                                    <input id="usun" class="center-block" type="submit" value="usuń">
+                                                </form>
+                                                <form action="ogloszenie" method="get">
+                                                    <input type="hidden" value="${a.id_advert}" name="ogloszenie">
+                                                    <input id="input_ogloszenie_usera" class="center-block" type="submit" value="${a.title}">
+                                                </form>                                 
+                                                <p>${a.content}</p>
+                                            </div> 
+                                        </c:if>
+                                    </c:forEach>       
+                                </div>           
+                            </div><!-- end edytuj dane -->
+                                    
+                                    
+                                    
+                            <div class="tab-pane fade col-md-8" id="twoje_wiadomosci">    
                                 <c:forEach var="a" items="${userAds}">           
                                     <c:if test="${a.id_advert != nr}">
                                         <div class="ogloszenie_usera"> 
-                                            <form action="delete" method="get">
-                                                <input type="hidden" value="${a.id_advert}" name="ogloszenie">
-                                                <input id="usun" class="center-block" type="submit" value="usuń">
-                                            </form>
+                                            <div id="czytaj">
+                                                <a href="wiadomosci.jsp"><button class="btn btn-sm btn-warning" type="button">Wiadomości <span class="badge">4</span></button></a>
+                                            </div>
                                             <form action="ogloszenie" method="get">
                                                 <input type="hidden" value="${a.id_advert}" name="ogloszenie">
                                                 <input id="input_ogloszenie_usera" class="center-block" type="submit" value="${a.title}">
@@ -93,9 +124,11 @@
                                             <p>${a.content}</p>
                                         </div> 
                                     </c:if>
-                                </c:forEach>       
+                                </c:forEach> 
                             </div>
-                        </div>
+
+                            
+                        </div>  <!-- end tab-content -->
                     </div>
                 </div>   <!-- end row -->
             </div>   <!-- end container --> 
