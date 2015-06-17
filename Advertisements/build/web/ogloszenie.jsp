@@ -43,9 +43,12 @@
 
                         <c:if test="${sessionScope.LogEmail != null && sessionScope.LogEmail != ''}">
                             <div class="col-md-12 text-center" style="margin-top: 30px;">
-                                <form action="" method="post">
+                                <form action="send" method="post">
                                     <label for="odpowiedz">Skontaktuj się z twórcą ogłoszenia</label>
                                     <textarea class="form-control" name="odpowiedz" rows="6"></textarea>
+                                    <input name="user" value="${sessionScope.LogEmail}" type="hidden">
+                                    <input name="advert" value="${Ads.id_advert}" type="hidden">
+                                    <input name="advert_user" value="${Users.id_user}" type="hidden">
                                     <button type="submit" style="margin-top: 20px; padding: 6px 18px;" class="btn btn-primary pull-right">Wyślij</button> 
                                 </form>
                             </div>
