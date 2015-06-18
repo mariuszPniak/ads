@@ -52,6 +52,10 @@
         <servlet-name>SendServlet</servlet-name>
         <servlet-class>Servlets.SendServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MessageServlet</servlet-name>
+        <servlet-class>Servlets.MessageServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -122,6 +126,10 @@
     <servlet-mapping>
         <servlet-name>SendServlet</servlet-name>
         <url-pattern>/send</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MessageServlet</servlet-name>
+        <url-pattern>/message</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

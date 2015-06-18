@@ -356,6 +356,23 @@ form{
     text-align: left;
 }
 
+.loginsk{
+    background: #428BCA!important;
+    height: 30px;
+    margin-top: 2px!important;
+    margin-right: 5px!important;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left:10px;
+    color:white;
+}
+
+.loginsk:hover{
+    background: #045AA2!important;
+    color:white;
+    text-decoration: none;
+}
+
 .ogloszenie_usera{
     background-color: #2E3F58;
 }
