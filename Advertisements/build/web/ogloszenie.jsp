@@ -49,6 +49,7 @@
                                     <input name="user" value="${sessionScope.LogEmail}" type="hidden">
                                     <input name="advert" value="${Ads.id_advert}" type="hidden">
                                     <input name="advert_user" value="${Users.id_user}" type="hidden">
+                                    <input name="login_sender" value="${sessionScope.LogEmail}" type="hidden">
                                     <button type="submit" style="margin-top: 20px; padding: 6px 18px;" class="btn btn-primary pull-right">Wyślij</button> 
                                 </form>
                             </div>

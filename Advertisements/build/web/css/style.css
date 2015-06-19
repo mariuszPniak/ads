@@ -356,6 +356,23 @@ form{
     text-align: left;
 }
 
+.loginsk{
+    background: #428BCA!important;
+    height: 30px;
+    margin-top: 2px!important;
+    margin-right: 5px!important;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left:10px;
+    color:white;
+}
+
+.loginsk:hover{
+    background: #045AA2!important;
+    color:white;
+    text-decoration: none;
+}
+
 .ogloszenie_usera{
     background-color: #2E3F58;
 }
@@ -738,21 +755,29 @@ form{
 
 /* Konwersacja uzytkownikow */
 
-.login-wiadomosci{
+.login-wiadomosci a{
     margin-top: 30px;
-    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+.login-wiadomosci a:nth-of-type(even){
+    margin-top: 30px;
+    display: block;
+    margin-left: 50%;
 }
 
 .wiadomosc-nadawcy{
     border-radius: 8px;
     background-color: #4cae4c;
     padding: 10px 0px 10px 12px;
+    margin-left: 0px;
+    width: 50%;
 }
 
 .wiadomosc-nadawcy p{
     margin: 0;
 }
-
+/*
 .wiadomosc-odbiorcy{
     border-radius: 8px;
     background-color: #269abc;
@@ -762,7 +787,7 @@ form{
 .wiadomosc-odbiorcy p{
     margin: 0;
 }
-
+*/
 #czytaj{
     float: right;
     border:none;
@@ -772,4 +797,10 @@ form{
     height: 30px;
     background: #C9302C;
     color: white;
+}
+
+.wiadomosc-nadawcy:nth-of-type(even){
+    background: yellow;
+    margin-left: 50%;
+    width: 50%;
 }

@@ -111,19 +111,20 @@
                                     
                                     
                             <div class="tab-pane fade col-md-8" id="twoje_wiadomosci">    
-                                <c:forEach var="a" items="${userAds}">           
-                                    <c:if test="${a.id_advert != nr}">
-                                        <div class="ogloszenie_usera"> 
+                                <c:forEach var="a" items="${skrzynka}">    
+                                        <div class="ogloszenie_usera skrzynka"> 
                                             <div id="czytaj">
-                                                <a href="wiadomosci.jsp"><button class="btn btn-sm btn-warning" type="button">Wiadomości <span class="badge">4</span></button></a>
+                                                <form action="message" method="get">
+                                                    <input type="hidden" value="${a.id_conversation}" name="conversation">
+                                                    <button type="submit" class="btn btn-sm btn-warning">Wiadomości <span class="badge">2</span></button>
+                                                </form>
                                             </div>
+                                            <a class="pull-right loginsk" href="users?login=${a.login}">${a.login}</a>
                                             <form action="ogloszenie" method="get">
                                                 <input type="hidden" value="${a.id_advert}" name="ogloszenie">
-                                                <input id="input_ogloszenie_usera" class="center-block" type="submit" value="${a.title}">
-                                            </form>                                 
-                                            <p>${a.content}</p>
+                                                <input id="input_ogloszenie_usera" type="submit" value="${a.title}">
+                                            </form>     
                                         </div> 
-                                    </c:if>
                                 </c:forEach> 
                             </div>
 

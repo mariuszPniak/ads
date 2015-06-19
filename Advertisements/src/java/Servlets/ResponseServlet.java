@@ -24,9 +24,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Mariusz
+ * @author szymon
  */
-public class SendServlet extends HttpServlet {
+public class ResponseServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,16 +41,16 @@ public class SendServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
-             
+            
+        String id_conversation=request.getParameter("conversation");
         String odp=request.getParameter("odpowiedz");
         String user=request.getParameter("user");
         String id_advert=request.getParameter("advert");
         String advert_user=request.getParameter("advert_user");
         String login_sender=request.getParameter("login_sender");
+            
         int max = 0;
-        int maxK = 0;
-       // out.print(""+odp+" "+user+" "+id_advert+" "+advert_user);
+        int id_conv = Integer.parseInt(id_conversation);
         
         ResultSet result = null;
         Statement stmt = null;
@@ -60,8 +60,8 @@ public class SendServlet extends HttpServlet {
                 Statement stmt2 = conn.createStatement();
                 HttpSession session = request.getSession();
 
-                String sql = "select * from public.user where email='"+user+"';";
-                
+               
+                String sql = "select * from public.user where email='"+user+"';";        
                 result=stmt.executeQuery(sql);
                 
                 if (result==null || !result.isBeforeFirst()){
@@ -71,6 +71,7 @@ public class SendServlet extends HttpServlet {
                         login_sender = result.getString("login");
                 }
                 
+                
                 sql = "select max(id_message) from message";
                 ResultSet RSmax = stmt.executeQuery(sql);
                 if (RSmax==null || !RSmax.isBeforeFirst()){
@@ -78,29 +79,16 @@ public class SendServlet extends HttpServlet {
                         RSmax.next();
                         max = RSmax.getInt(1)+1;        
                 }
-                
-                 sql = "select max(id_conversation) from conversation";
-                ResultSet RSmaxK = stmt.executeQuery(sql);
-                if (RSmaxK==null || !RSmaxK.isBeforeFirst()){
-                } else {
-                        RSmaxK.next();
-                        maxK = RSmaxK.getInt(1)+1;
-                        
-                }
-                
+            
+                System.out.println("Przed zapytaniem --------------------");
                 response.sendRedirect("index.html");
                
-                sql = "INSERT INTO conversation (id_conversation, id_advert, id_user1, id_user2, id_messages)"
-                        + " VALUES ('"+maxK+"','"+id_advert+"','"+user+"','"+advert_user+"','"+max+"');"
-                        + "INSERT INTO message (id_message, content, id_conversation, date_message, login_sender)"
-                        + " VALUES ('"+max+"','"+odp+"','"+maxK+"',current_timestamp,'"+login_sender+"');";
-              
+                sql = "INSERT INTO message (id_message, content, id_conversation, date_message, login_sender)"
+                        + " VALUES ('"+max+"','"+odp+"','"+id_conv+"',current_timestamp,'"+login_sender+"');";
+                
                 stmt.executeQuery(sql);
-                
-                
-                
-                
-                
+                System.out.println("Po zapytaniem --------------------");
+                System.out.println(max+ odp + id_conversation + login_sender + "-------------");
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
@@ -118,7 +106,6 @@ public class SendServlet extends HttpServlet {
                     ex.printStackTrace();
                 }
             }
-            
         }
     }
 

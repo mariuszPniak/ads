@@ -20,10 +20,11 @@ public class Conversation {
     public Conversation() {
     }
 
-    public Conversation(String id_conversation, String id_advert, String id_user1, String id_message) {
+    public Conversation(String id_conversation, String id_advert, String id_user1,String id_user2, String id_message) {
         this.id_conversation = id_conversation;
         this.id_advert = id_advert;
         this.id_user1 = id_user1;
+        this.id_user1 = id_user2;
         this.id_message = id_message;
     }
 

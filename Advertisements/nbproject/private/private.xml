@@ -3,16 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/NETBEANS/portal/ads/Advertisements/src/java/Servlets/ChangeAccountServlet.java</file>
+            <file>file:/G:/NETBEANS/portal/ads/Advertisements/src/java/Servlets/LoginServlet.java</file>
+            <file>file:/G:/NETBEANS/portal/ads/Advertisements/src/java/Servlets/MessageServlet.java</file>
             <file>file:/G:/NETBEANS/portal/ads/Advertisements/web/ogloszenie.jsp</file>
-            <file>file:/G:/NETBEANS/portal/ads/Advertisements/src/java/Servlets/UServlet.java</file>
             <file>file:/G:/NETBEANS/portal/ads/Advertisements/src/java/Servlets/UserServlet.java</file>
             <file>file:/G:/NETBEANS/portal/ads/Advertisements/web/WEB-INF/web.xml</file>
             <file>file:/G:/NETBEANS/portal/ads/Advertisements/web/css/style.css</file>
+            <file>file:/G:/NETBEANS/portal/ads/Advertisements/src/java/Servlets/ResponseServlet.java</file>
             <file>file:/G:/NETBEANS/portal/ads/Advertisements/src/java/Servlets/SendServlet.java</file>
+            <file>file:/G:/NETBEANS/portal/ads/Advertisements/web/sectionsHTML/header.jsp</file>
             <file>file:/G:/NETBEANS/portal/ads/Advertisements/web/wiadomosci.jsp</file>
-            <file>file:/G:/NETBEANS/portal/ads/Advertisements/src/java/Servlets/adServlet.java</file>
             <file>file:/G:/NETBEANS/portal/ads/Advertisements/web/konto.jsp</file>
+            <file>file:/G:/NETBEANS/portal/ads/Advertisements/src/java/Beans/Message.java</file>
         </group>
     </open-files>
 </project-private>
