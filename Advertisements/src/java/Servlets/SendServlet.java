@@ -47,6 +47,7 @@ public class SendServlet extends HttpServlet {
         String user=request.getParameter("user");
         String id_advert=request.getParameter("advert");
         String advert_user=request.getParameter("advert_user");
+        String login_sender=request.getParameter("login_sender");
         int max = 0;
         int maxK = 0;
        // out.print(""+odp+" "+user+" "+id_advert+" "+advert_user);
@@ -67,7 +68,7 @@ public class SendServlet extends HttpServlet {
                 } else {
                         result.next();
                         user = result.getString("id_user");
-                        
+                        login_sender = result.getString("login");
                 }
                 
                 sql = "select max(id_message) from message";
@@ -75,8 +76,7 @@ public class SendServlet extends HttpServlet {
                 if (RSmax==null || !RSmax.isBeforeFirst()){
                 } else {
                         RSmax.next();
-                        max = RSmax.getInt(1)+1;
-                        
+                        max = RSmax.getInt(1)+1;        
                 }
                 
                  sql = "select max(id_conversation) from conversation";
@@ -92,8 +92,8 @@ public class SendServlet extends HttpServlet {
                
                 sql = "INSERT INTO conversation (id_conversation, id_advert, id_user1, id_user2, id_messages)"
                         + " VALUES ('"+maxK+"','"+id_advert+"','"+user+"','"+advert_user+"','"+max+"');"
-                        + "INSERT INTO message (id_message, content, id_conversation, date_message)"
-                        + " VALUES ('"+max+"','"+odp+"','"+maxK+"',current_timestamp);";
+                        + "INSERT INTO message (id_message, content, id_conversation, date_message, login_sender)"
+                        + " VALUES ('"+max+"','"+odp+"','"+maxK+"',current_timestamp,'"+login_sender+"');";
               
                 stmt.executeQuery(sql);
                 

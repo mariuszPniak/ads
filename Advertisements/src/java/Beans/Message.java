@@ -15,17 +15,19 @@ public class Message {
     private String content;
     private String id_conversation;
     private String date_message;
+    private String login_sender;
 
     public Message() {
     }
     
     
 
-    public Message(String id_message, String content, String id_conversation, String date_message) {
+    public Message(String id_message, String content, String id_conversation, String date_message, String login_sender) {
         this.id_message = id_message;
         this.content = content;
         this.id_conversation = id_conversation;
         this.date_message = date_message;
+        this.login_sender = login_sender;
     }
 
     public String getId_message() {
@@ -60,7 +62,13 @@ public class Message {
         this.date_message = date_message;
     }
     
-    
+    public String getLogin_sender() {
+        return login_sender;
+    }
+
+    public void setLogin_sender(String login_sender) {
+        this.login_sender = login_sender;
+    }
     
     
 }

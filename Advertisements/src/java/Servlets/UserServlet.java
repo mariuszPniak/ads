@@ -105,7 +105,7 @@ public class UserServlet extends HttpServlet {
 //                }
 //                out.print(sql4);
                 String sql5 = "select id_conversation, id_advert, title, login from advert join conversation using(id_advert) join public.user using(id_user)\n"
-                        + "where advert.id_advert = conversation.id_advert and conversation.id_user1="+id_usera+";";
+                        + "where advert.id_advert = conversation.id_advert and conversation.id_user1="+id_usera+" or conversation.id_user2="+id_usera+";";
 //                out.print(sql5);
                 result = stmt.executeQuery(sql5);
                 if (result == null || !result.isBeforeFirst()) {

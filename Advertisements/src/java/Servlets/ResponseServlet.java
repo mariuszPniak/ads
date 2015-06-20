@@ -6,8 +6,7 @@
 package Servlets;
 
 import Beans.Ads;
-import Beans.Message;
-import Beans.SkrzynakaOdbiorcza;
+import Beans.Users;
 import DB.DBconnection;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,8 +14,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -27,9 +24,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Mariusz
+ * @author szymon
  */
-public class MessageServlet extends HttpServlet {
+public class ResponseServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,49 +42,53 @@ public class MessageServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+        String id_conversation=request.getParameter("conversation");
+        String odp=request.getParameter("odpowiedz");
+        String user=request.getParameter("user");
+        String id_advert=request.getParameter("advert");
+        String advert_user=request.getParameter("advert_user");
+        String login_sender=request.getParameter("login_sender");
             
-            String conv = request.getParameter("conversation");
-            List<Message> message = new ArrayList<Message>();
-            ResultSet result = null;
-            Statement stmt = null;
-            
-  //          int ilosc_wiadomosci=0;
-            
-            
-            Connection conn = DBconnection.connection();
+        int max = 0;
+        int id_conv = Integer.parseInt(id_conversation);
+        
+        ResultSet result = null;
+        Statement stmt = null;
+        Connection conn = DBconnection.connection();
             try {
                 stmt = conn.createStatement();
+                Statement stmt2 = conn.createStatement();
                 HttpSession session = request.getSession();
+
+               
+                String sql = "select * from public.user where email='"+user+"';";        
+                result=stmt.executeQuery(sql);
                 
-                
-                System.out.println("Przed zapytaniem ----------------------");
-                
-                String sql = "select * from message where id_conversation="+conv+" order by date_message";
-                result = stmt.executeQuery(sql);
-                System.out.println("Po zapytaniem ----------------------");
-                if (result == null || !result.isBeforeFirst()) {
+                if (result==null || !result.isBeforeFirst()){
                 } else {
-                    while (result.next()) {
-                       Message m = new Message(result.getString("id_message"),result.getString("content"),result.getString("id_conversation"),result.getString("date_message"),result.getString("login_sender"));
-                        message.add(m);
-                    }
+                        result.next();
+                        user = result.getString("id_user");
+                        login_sender = result.getString("login");
                 }
                 
-//                sql = "select id_conversation, count(id_message) as \"liczba wiadomosci\" from message group by id_conversation order by 2 asc;";
-//                ResultSet RSi = stmt.executeQuery(sql);
-//                if (RSi==null || !RSi.isBeforeFirst()){
-//                } else {
-//                        RSi.next();
-//                        ilosc_wiadomosci = RSi.getInt("liczba wiadomosci");
-//                        System.out.println("Przed przeniesieniem ----------------------" + ilosc_wiadomosci);
-//                }
                 
+                sql = "select max(id_message) from message";
+                ResultSet RSmax = stmt.executeQuery(sql);
+                if (RSmax==null || !RSmax.isBeforeFirst()){
+                } else {
+                        RSmax.next();
+                        max = RSmax.getInt(1)+1;        
+                }
+            
+                System.out.println("Przed zapytaniem --------------------");
+                response.sendRedirect("index.html");
+               
+                sql = "INSERT INTO message (id_message, content, id_conversation, date_message, login_sender)"
+                        + " VALUES ('"+max+"','"+odp+"','"+id_conv+"',current_timestamp,'"+login_sender+"');";
                 
-                
-                request.setAttribute("skrzynka", message);
-     //           request.setAttribute("il", ilosc_wiadomosci);
-                request.getRequestDispatcher("wiadomosci.jsp").forward(request, response);
-
+                stmt.executeQuery(sql);
+                System.out.println("Po zapytaniem --------------------");
+                System.out.println(max+ odp + id_conversation + login_sender + "-------------");
             } catch (SQLException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
@@ -105,8 +106,6 @@ public class MessageServlet extends HttpServlet {
                     ex.printStackTrace();
                 }
             }
-            
-            
         }
     }
 

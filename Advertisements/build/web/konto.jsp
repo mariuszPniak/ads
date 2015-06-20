@@ -116,15 +116,14 @@
                                             <div id="czytaj">
                                                 <form action="message" method="get">
                                                     <input type="hidden" value="${a.id_conversation}" name="conversation">
-                                                    <button type="submit" class="btn btn-sm btn-warning" type="button">Wiadomości <span class="badge">4</span></button>
+                                                    <button type="submit" class="btn btn-sm btn-warning">Wiadomości <span class="badge">2</span></button>
                                                 </form>
                                             </div>
                                             <a class="pull-right loginsk" href="users?login=${a.login}">${a.login}</a>
                                             <form action="ogloszenie" method="get">
                                                 <input type="hidden" value="${a.id_advert}" name="ogloszenie">
                                                 <input id="input_ogloszenie_usera" type="submit" value="${a.title}">
-                                            </form>   
-                                            
+                                            </form>     
                                         </div> 
                                 </c:forEach> 
                             </div>

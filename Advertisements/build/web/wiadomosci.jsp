@@ -16,38 +16,42 @@
                     </div>
                     
                     <div class="col-md-9">
-                        <h3 class="text-center">Konwersacja - tytuł ogłoszenia</h3>
-                        <div class="col-md-7 pull-left">
-                            <p class="login-wiadomosci">Login nadawcy</p>
-                            <div class="wiadomosc-nadawcy">
-                                <p>Panie Kochany, a ta drukareczka to w jakim stanie?</p>
-                            </div>
-                        </div>
-                        <div class="col-md-7 pull-right">
-                            <p class="login-wiadomosci">Login odbiorcy</p>
-                            <div class="wiadomosc-odbiorcy">
-                                <p>W świetnym stanie, rewelacja, tylko brać.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-7 pull-left">
-                            <p class="login-wiadomosci">Login nadawcy</p>
-                            <div class="wiadomosc-nadawcy">
-                                <p>Daje Pan słowo?</p>
-                            </div>
-                        </div>
+                        <h3 class="text-center">Konwersacja</h3>
+                        
+                        
+                       <div class="login-wiadomosci">
+                            <c:forEach var="a" items="${skrzynka}">                              
+                                <a href="users?login=${a.login_sender}"><p class="login-wiadomosci">${a.login_sender}</p></a>
+                                <div class="wiadomosc-nadawcy">
+                                    <p>${a.content}</p>               
+                                </div>
+                            </c:forEach>      
+                       </div>
+                        
                         
                         <div class="clearfix">                    
                         </div>
                         
                         <hr width="100%" style="margin-top: 50px;"/>
                         
+                        
                         <div class="col-md-offset-2 col-md-8 text-center">
-                            <form action="response" method="post">
-                                <label for="odpowiedz">Twoja odpowiedź</label>
-                                <textarea class="form-control" name="odpowiedz" rows="6"></textarea>
-                                <button type="submit" style="margin-top: 20px; padding: 6px 18px;" class="btn btn-primary pull-right">Wyślij</button> 
-                            </form>
+                            
+                                <form action="response" method="post">
+                                    <c:forEach var="a" items="${skrzynka}">
+                                    <input type="hidden" value="${a.id_conversation}" name="conversation">
+                                    </c:forEach>
+                                    <input name="user" value="${sessionScope.LogEmail}" type="hidden">
+                                    <input name="advert" value="${Ads.id_advert}" type="hidden">
+                                    <input name="advert_user" value="${Users.id_user}" type="hidden">
+                                    <input name="login_sender" value="${sessionScope.LogEmail}" type="hidden">
+                                    <label for="odpowiedz">Twoja odpowiedź</label>
+                                    <textarea class="form-control" name="odpowiedz" rows="6"></textarea>
+                                    <button type="submit" style="margin-top: 20px; padding: 6px 18px;" class="btn btn-primary pull-right">Wyślij</button> 
+                                </form>
+                            
                         </div>
+                             
                     </div>
                 </div>
             </div>
