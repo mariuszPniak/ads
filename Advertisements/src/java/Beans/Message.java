@@ -16,8 +16,26 @@ public class Message {
     private String id_conversation;
     private String date_message;
     private String login_sender;
+    private String email;
 
     public Message() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Message(String id_message, String content, String id_conversation, String date_message, String login_sender, String email) {
+        this.id_message = id_message;
+        this.content = content;
+        this.id_conversation = id_conversation;
+        this.date_message = date_message;
+        this.login_sender = login_sender;
+        this.email = email;
     }
     
     

@@ -755,12 +755,14 @@ form{
 
 /* Konwersacja uzytkownikow */
 
-.login-wiadomosci a{
+.login-wiadomosci-nadawcy{
     margin-top: 30px;
     margin-left: 2px;
 }
 
-.login-wiadomosci a:nth-of-type(even){
+
+
+.login-wiadomosci-odbiorcy{
     margin-top: 30px;
     display: block;
     margin-left: 50%;
@@ -777,17 +779,18 @@ form{
 .wiadomosc-nadawcy p{
     margin: 0;
 }
-/*
+
 .wiadomosc-odbiorcy{
     border-radius: 8px;
-    background-color: #269abc;
+    background-color: red;
+    margin-left: 50%;
     padding: 10px 0px 10px 12px;
 }
 
 .wiadomosc-odbiorcy p{
     margin: 0;
 }
-*/
+
 #czytaj{
     float: right;
     border:none;
@@ -799,8 +802,8 @@ form{
     color: white;
 }
 
-.wiadomosc-nadawcy:nth-of-type(even){
+/*.wiadomosc-nadawcy:nth-of-type(even){
     background: yellow;
     margin-left: 50%;
     width: 50%;
-}
+}*/
